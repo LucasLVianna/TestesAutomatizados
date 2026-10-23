@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.14.4 on win32)" generated="2026-10-23T20:03:35.908036" rpa="false" schemaversion="5">
+<suite id="s1" name="Ct37 Testes" source="D:\verival - ra3\TestesAutomatizados\CT37\ct37_testes.robot">
+<kw name="Preparar massa de dados do caso" owner="ct37_resources" type="SETUP">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-23T20:03:36.366022" level="INFO">${id_execucao} = 1792796616365936400</msg>
+<var>${id_execucao}</var>
+<arg>str(time.time_ns())</arg>
+<arg>modules=time</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-23T20:03:36.365429" elapsed="0.000646"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-10-23T20:03:36.367181" level="INFO">${EMAIL_USUARIO} = teste_1792796616365936400_ct37@teste.com</msg>
+<arg>${EMAIL_USUARIO}</arg>
+<arg>teste_${id_execucao}_ct37@teste.com</arg>
+<doc>Makes the variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-10-23T20:03:36.366299" elapsed="0.000953"/>
+</kw>
+<kw name="Abrir o navegador" owner="ct37_resources">
+<kw name="Montar opcoes do navegador" owner="ct37_resources">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-23T20:03:36.368299" level="INFO">${opcoes} = add_argument("--window-size=1920,1080");binary_location="C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"</msg>
+<var>${opcoes}</var>
+<arg>add_argument("--window-size=1920,1080");binary_location="${CAMINHO_BRAVE}"</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-23T20:03:36.367928" elapsed="0.000409"/>
+</kw>
+<if>
+<branch type="IF" condition="$HEADLESS.lower() == 'true'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${opcoes}</var>
+<arg>${opcoes};add_argument("--headless=new")</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="NOT RUN" start="2026-10-23T20:03:36.368726" elapsed="0.000036"/>
+</kw>
+<status status="NOT RUN" start="2026-10-23T20:03:36.368452" elapsed="0.000364"/>
+</branch>
+<status status="PASS" start="2026-10-23T20:03:36.368422" elapsed="0.000447"/>
+</if>
+<return>
+<value>${opcoes}</value>
+<status status="PASS" start="2026-10-23T20:03:36.368919" elapsed="0.000054"/>
+</return>
+<msg time="2026-10-23T20:03:36.369121" level="INFO">${opcoes} = add_argument("--window-size=1920,1080");binary_location="C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"</msg>
+<var>${opcoes}</var>
+<status status="PASS" start="2026-10-23T20:03:36.367745" elapsed="0.001411"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:36.369698" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/mykeeper'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${opcoes}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-23T20:03:36.369448" elapsed="5.629112"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-23T20:03:41.998895" elapsed="0.041707"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:03:36.367448" elapsed="5.673315"/>
+</kw>
+<kw name="Cadastrar usuario de teste" owner="ct37_resources">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:42.041378" level="INFO">Opening url 'http://localhost/mykeeper/usuario_cadastro'</msg>
+<arg>url=${URL}/usuario_cadastro</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-10-23T20:03:42.041176" elapsed="0.139174"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_NOME}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T20:03:42.180551" elapsed="0.022810"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:42.203972" level="INFO">Typing text 'Usuario Teste CT37' into text field 'id:nome'.</msg>
+<arg>${CAMPO_NOME}</arg>
+<arg>${NOME_USUARIO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:42.203596" elapsed="0.110234"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:42.314389" level="INFO">Typing text 'teste_1792796616365936400_ct37@teste.com' into text field 'id:email'.</msg>
+<arg>${CAMPO_EMAIL}</arg>
+<arg>${EMAIL_USUARIO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:42.314076" elapsed="0.117340"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:42.431963" level="INFO">Typing text '80215-901' into text field 'id:cep'.</msg>
+<arg>${CAMPO_CEP}</arg>
+<arg>${CEP_USUARIO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:42.431644" elapsed="0.111632"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:42.543810" level="INFO">Typing password into text field 'id:senha'.</msg>
+<msg time="2026-10-23T20:03:42.565463" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>${SENHA_PADRAO}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:42.543495" elapsed="0.057835"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:42.601776" level="INFO">Clicking button 'css:#formCadastro button[type=submit]'.</msg>
+<arg>${BOTAO_CRIAR_CONTA}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:42.601516" elapsed="0.069365"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${MENSAGEM_FORMULARIO}</arg>
+<arg>${MSG_CADASTRO_SUCESSO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2026-10-23T20:03:42.671071" elapsed="0.231013"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>usuario_login</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-10-23T20:03:42.902276" elapsed="1.031382"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:03:42.040978" elapsed="1.892802"/>
+</kw>
+<kw name="Efetuar login no MyKeeper" owner="ct37_resources">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:43.934427" level="INFO">Opening url 'http://localhost/mykeeper/usuario_login'</msg>
+<arg>url=${URL}/usuario_login</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-10-23T20:03:43.934232" elapsed="0.045688"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_EMAIL}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T20:03:43.980486" elapsed="0.015296"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:43.996293" level="INFO">Typing text 'teste_1792796616365936400_ct37@teste.com' into text field 'id:email'.</msg>
+<arg>${CAMPO_EMAIL}</arg>
+<arg>${EMAIL_USUARIO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:43.995998" elapsed="0.105436"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:44.101927" level="INFO">Typing password into text field 'id:senha'.</msg>
+<msg time="2026-10-23T20:03:44.122331" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>${SENHA_PADRAO}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:44.101638" elapsed="0.054064"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:44.156173" level="INFO">Clicking button 'css:#formLogin button[type=submit]'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:44.155917" elapsed="0.056693"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/home</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-10-23T20:03:44.212845" elapsed="1.238684"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MENU_SAIR}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T20:03:45.451730" elapsed="0.015379"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:03:43.933978" elapsed="1.533252"/>
+</kw>
+<kw name="Cadastrar categoria" owner="ct37_resources">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:45.467791" level="INFO">Opening url 'http://localhost/mykeeper/categoria_novo'</msg>
+<arg>url=${URL}/categoria_novo</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-10-23T20:03:45.467626" elapsed="0.124510"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_NOME_CATEGORIA}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T20:03:45.592388" elapsed="0.016713"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:45.609609" level="INFO">Typing text 'Laticinios CT37' into text field 'id:nome_categoria'.</msg>
+<arg>${CAMPO_NOME_CATEGORIA}</arg>
+<arg>${NOME_CATEGORIA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:45.609306" elapsed="0.068205"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:45.678023" level="INFO">Typing text 'Itens da geladeira' into text field 'id:descricao_categoria'.</msg>
+<arg>${CAMPO_DESCRICAO_CATEGORIA}</arg>
+<arg>${DESCRICAO_CATEGORIA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:45.677720" elapsed="0.084482"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:45.762720" level="INFO">Clicking button 'id:addcategoria'.</msg>
+<arg>${BOTAO_ADD_CATEGORIA}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:45.762438" elapsed="0.053950"/>
+</kw>
+<kw name="Wait Until Location Does Not Contain" owner="SeleniumLibrary">
+<arg>categoria_novo</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the current URL does not contains ``location``.</doc>
+<status status="PASS" start="2026-10-23T20:03:45.816580" elapsed="1.358407"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${NOME_CATEGORIA}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T20:03:47.175185" elapsed="0.217819"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:03:45.467426" elapsed="1.925715"/>
+</kw>
+<kw name="Cadastrar produto" owner="ct37_resources">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:47.393723" level="INFO">Opening url 'http://localhost/mykeeper/produto_novo'</msg>
+<arg>url=${URL}/produto_novo</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-10-23T20:03:47.393553" elapsed="0.247002"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_NOME_PRODUTO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T20:03:47.640747" elapsed="0.023142"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:47.664650" level="INFO">Typing text 'Queijo CT37' into text field 'id:nome_produto'.</msg>
+<arg>${CAMPO_NOME_PRODUTO}</arg>
+<arg>${NOME_PRODUTO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:47.664236" elapsed="0.133824"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:47.799301" level="INFO">Selecting options from selection list 'id:categoria_produto' by label Laticinios CT37.</msg>
+<arg>${SELECT_CATEGORIA_PRODUTO}</arg>
+<arg>${NOME_CATEGORIA}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-10-23T20:03:47.799032" elapsed="0.087978"/>
+</kw>
+<arg>${TIMEOUT}</arg>
+<arg>500ms</arg>
+<arg>Select From List By Label</arg>
+<arg>${SELECT_CATEGORIA_PRODUTO}</arg>
+<arg>${NOME_CATEGORIA}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2026-10-23T20:03:47.798344" elapsed="0.088778"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:47.887567" level="INFO">Selecting options from selection list 'id:und_medida_produto' by label Quilo (Kg).</msg>
+<arg>${SELECT_UNIDADE_PRODUTO}</arg>
+<arg>${UNIDADE_PRODUTO}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-10-23T20:03:47.887279" elapsed="0.078265"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:47.966028" level="INFO">Clicking button 'id:addproduto'.</msg>
+<arg>${BOTAO_ADD_PRODUTO}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:47.965739" elapsed="0.124692"/>
+</kw>
+<kw name="Wait Until Location Does Not Contain" owner="SeleniumLibrary">
+<arg>produto_novo</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the current URL does not contains ``location``.</doc>
+<status status="PASS" start="2026-10-23T20:03:48.090621" elapsed="1.237609"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${NOME_PRODUTO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T20:03:49.328411" elapsed="0.009102"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:03:47.393347" elapsed="1.944282"/>
+</kw>
+<kw name="Cadastrar estoque" owner="ct37_resources">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:49.338175" level="INFO">Opening url 'http://localhost/mykeeper/estoque_adicionar'</msg>
+<arg>url=${URL}/estoque_adicionar</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-10-23T20:03:49.338013" elapsed="0.581493"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_NOME_ESTOQUE}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T20:03:49.919703" elapsed="0.016878"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:49.937067" level="INFO">Typing text 'Geladeira CT37' into text field 'id:nome_estoque'.</msg>
+<arg>${CAMPO_NOME_ESTOQUE}</arg>
+<arg>${NOME_ESTOQUE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:49.936782" elapsed="0.073115"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:50.010529" level="INFO">Clicking button 'id:addestoque'.</msg>
+<arg>${BOTAO_ADD_ESTOQUE}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:50.010236" elapsed="0.061021"/>
+</kw>
+<kw name="Wait Until Location Does Not Contain" owner="SeleniumLibrary">
+<arg>estoque_adicionar</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the current URL does not contains ``location``.</doc>
+<status status="PASS" start="2026-10-23T20:03:50.071476" elapsed="1.671738"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${NOME_ESTOQUE}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T20:03:51.743464" elapsed="0.219769"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:03:49.337819" elapsed="2.625530"/>
+</kw>
+<kw name="Adicionar produto ao estoque" owner="ct37_resources">
+<kw name="Abrir a tela de itens do estoque" owner="ct37_resources">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:51.964187" level="INFO">Opening url 'http://localhost/mykeeper/estoque'</msg>
+<arg>url=${URL}/estoque</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-10-23T20:03:51.964027" elapsed="0.045831"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CARD_ESTOQUE}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T20:03:52.010064" elapsed="0.224854"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:52.235492" level="INFO">Clicking element 'xpath://div[contains(@class,'card')][.//div[contains(@class,'card-nome')][normalize-space()='Geladeira CT37']]'.</msg>
+<arg>${CARD_ESTOQUE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:52.235175" elapsed="0.203589"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_NOVO_ITEM}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T20:03:52.439017" elapsed="0.033299"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:03:51.963832" elapsed="0.508629"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:52.473076" level="INFO">Clicking button 'id:adicionarItem'.</msg>
+<arg>${BOTAO_NOVO_ITEM}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:52.472742" elapsed="0.165875"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CARD_PRODUTO_ADICIONAR}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T20:03:52.638836" elapsed="0.026975"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:52.667718" level="INFO">Typing text '2' into text field 'xpath://div[contains(@class,'card')][.//div[contains(@class,'card-nome')][normalize-space()='Queijo CT37']]//input[starts-with(@id,'quantidade-')]'.</msg>
+<arg>${CAMPO_QUANTIDADE_ADICIONAR}</arg>
+<arg>${QUANTIDADE_INICIAL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:52.666095" elapsed="0.066519"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:52.733190" level="INFO">Clicking button 'xpath://div[contains(@class,'card')][.//div[contains(@class,'card-nome')][normalize-space()='Queijo CT37']]//button[normalize-space()='+ Adicionar']'.</msg>
+<arg>${BOTAO_ADICIONAR_ITEM}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:03:52.732818" elapsed="0.064741"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${MSG_ITEM_ADICIONADO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T20:03:52.797854" elapsed="0.349772"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:03:51.963554" elapsed="1.184203"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-23T20:03:53.147906" elapsed="2.561228"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:03:36.364583" elapsed="19.344695"/>
+</kw>
+<test id="s1-t1" name="CT37 - Excluir um item do estoque e confirmar sua remocao da listagem" line="8">
+<kw name="Abrir o navegador" owner="ct37_resources" type="SETUP">
+<kw name="Montar opcoes do navegador" owner="ct37_resources">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-23T20:03:55.711185" level="INFO">${opcoes} = add_argument("--window-size=1920,1080");binary_location="C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"</msg>
+<var>${opcoes}</var>
+<arg>add_argument("--window-size=1920,1080");binary_location="${CAMINHO_BRAVE}"</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-23T20:03:55.710800" elapsed="0.000426"/>
+</kw>
+<if>
+<branch type="IF" condition="$HEADLESS.lower() == 'true'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${opcoes}</var>
+<arg>${opcoes};add_argument("--headless=new")</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="NOT RUN" start="2026-10-23T20:03:55.711625" elapsed="0.000038"/>
+</kw>
+<status status="NOT RUN" start="2026-10-23T20:03:55.711346" elapsed="0.000371"/>
+</branch>
+<status status="PASS" start="2026-10-23T20:03:55.711315" elapsed="0.000477"/>
+</if>
+<return>
+<value>${opcoes}</value>
+<status status="PASS" start="2026-10-23T20:03:55.711852" elapsed="0.000057"/>
+</return>
+<msg time="2026-10-23T20:03:55.712058" level="INFO">${opcoes} = add_argument("--window-size=1920,1080");binary_location="C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"</msg>
+<var>${opcoes}</var>
+<status status="PASS" start="2026-10-23T20:03:55.710538" elapsed="0.001556"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:03:55.712686" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/mykeeper'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${opcoes}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-23T20:03:55.712422" elapsed="4.356083"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-23T20:04:00.068801" elapsed="0.036630"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:03:55.710061" elapsed="4.395513"/>
+</kw>
+<kw name="Efetuar login no MyKeeper" owner="ct37_resources">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:04:00.106448" level="INFO">Opening url 'http://localhost/mykeeper/usuario_login'</msg>
+<arg>url=${URL}/usuario_login</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-10-23T20:04:00.106267" elapsed="0.203624"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_EMAIL}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T20:04:00.310098" elapsed="0.028603"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:04:00.339257" level="INFO">Typing text 'teste_1792796616365936400_ct37@teste.com' into text field 'id:email'.</msg>
+<arg>${CAMPO_EMAIL}</arg>
+<arg>${EMAIL_USUARIO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:04:00.338928" elapsed="0.164680"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:04:00.504243" level="INFO">Typing password into text field 'id:senha'.</msg>
+<msg time="2026-10-23T20:04:00.538825" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>${SENHA_PADRAO}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:04:00.503829" elapsed="0.075829"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:04:00.580121" level="INFO">Clicking button 'css:#formLogin button[type=submit]'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:04:00.579857" elapsed="0.069454"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/home</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-10-23T20:04:00.649504" elapsed="1.236287"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MENU_SAIR}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T20:04:01.885978" elapsed="0.014652"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:04:00.105932" elapsed="1.794828"/>
+</kw>
+<kw name="Abrir a tela de itens do estoque" owner="ct37_resources">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:04:01.901496" level="INFO">Opening url 'http://localhost/mykeeper/estoque'</msg>
+<arg>url=${URL}/estoque</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-10-23T20:04:01.901335" elapsed="0.141459"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CARD_ESTOQUE}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T20:04:02.043097" elapsed="0.227206"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:04:02.271197" level="INFO">Clicking element 'xpath://div[contains(@class,'card')][.//div[contains(@class,'card-nome')][normalize-space()='Geladeira CT37']]'.</msg>
+<arg>${CARD_ESTOQUE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:04:02.270713" elapsed="0.143635"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_NOVO_ITEM}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T20:04:02.414675" elapsed="0.024344"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:04:01.901053" elapsed="0.538153"/>
+</kw>
+<kw name="Excluir o item do estoque" owner="ct37_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:04:02.440149" level="INFO">Clicking element 'xpath://div[contains(@class,'card')][.//div[contains(@class,'card-nome')][normalize-space()='Queijo CT37']]//a[normalize-space()='Excluir']'.</msg>
+<arg>${LINK_EXCLUIR_ITEM}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:04:02.439910" elapsed="0.077627"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_CONFIRMAR}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T20:04:02.517872" elapsed="0.017320"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:04:02.535701" level="INFO">Clicking button 'css:.notificacao-confirmar'.</msg>
+<arg>${BOTAO_CONFIRMAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:04:02.535401" elapsed="0.058243"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:04:02.439571" elapsed="0.154202"/>
+</kw>
+<kw name="Verificar que o item foi excluido" owner="ct37_resources">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${MSG_ITEM_EXCLUIDO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<arg>error=O sistema nao exibiu a mensagem de exclusao do item.</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T20:04:02.594446" elapsed="0.222951"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain" owner="SeleniumLibrary">
+<arg>${NOME_PRODUTO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<arg>error=O item continua listado no estoque apos a exclusao.</arg>
+<doc>Waits until ``text`` disappears from the current page.</doc>
+<status status="PASS" start="2026-10-23T20:04:02.817579" elapsed="1.461413"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:04:02.594094" elapsed="1.685020"/>
+</kw>
+<kw name="Fechar o navegador" owner="ct37_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:04:04.374917" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T20:04:04.279860" elapsed="0.095178"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-23T20:04:04.375208" elapsed="2.568215"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:04:04.279510" elapsed="2.664031"/>
+</kw>
+<doc>Ao excluir um item do estoque e confirmar a acao, o sistema deve exibir a
+mensagem "Item excluido com sucesso" e o item deve deixar de aparecer na
+listagem do estoque.</doc>
+<tag>estoque</tag>
+<tag>funcionalidade</tag>
+<tag>itens</tag>
+<tag>media</tag>
+<status status="PASS" start="2026-10-23T20:03:55.709382" elapsed="11.234379"/>
+</test>
+<status status="PASS" start="2026-10-23T20:03:35.910366" elapsed="31.034411"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">estoque</stat>
+<stat pass="1" fail="0" skip="0">funcionalidade</stat>
+<stat pass="1" fail="0" skip="0">itens</stat>
+<stat pass="1" fail="0" skip="0">media</stat>
+</tag>
+<suite>
+<stat name="Ct37 Testes" id="s1" pass="1" fail="0" skip="0">Ct37 Testes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

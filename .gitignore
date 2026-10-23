@@ -3,7 +3,3 @@ resultados/
 
 __pycache__/
 *.pyc
-output.xml
-log.html
-report.html
-selenium-screenshot-*.png

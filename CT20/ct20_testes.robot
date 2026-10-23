@@ -6,12 +6,13 @@ Test Teardown     Fechar o navegador
 
 *** Test Cases ***
 CT20 - Tentar enviar mensagem em branco no chat de suporte
-    [Documentation]    Ao tentar enviar uma mensagem vazia no chat do ticket, pelo botao "Enviar"
-    ...                e pela tecla ENTER, o sistema deve bloquear o envio, exibir um alerta
-    ...                e nenhuma mensagem vazia deve aparecer no historico.
+    [Documentation]    Passo-a-passo: 1- Abrir o chat de suporte (Tickets > "Chat" do ticket); 2- Deixar a caixa de texto
+    ...                sem nenhum caractere; 3- Clicar no botao "Enviar" ou pressionar ENTER (as duas formas sao testadas).
+    ...                Resultado esperado: 1- Chat de suporte aberto; 2- Caixa em branco; 3- A acao e bloqueada, impedindo
+    ...                o envio de mensagens sem conteudo, e uma mensagem de alerta e exibida.
     [Tags]             suporte    chat    baixa
     Efetuar login no MyKeeper
-    Abrir o chat do ticket
+    Abrir o chat de suporte
     ${qtd_antes}=    Contar mensagens do chat
     Clicar em enviar com a mensagem vazia
     Verificar que o envio vazio foi bloqueado    ${qtd_antes}

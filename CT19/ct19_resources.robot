@@ -102,9 +102,11 @@ Efetuar logout
     Wait Until Element Is Visible    ${BOTAO_COMECAR_AGORA}    timeout=${TIMEOUT}
 
 # ---------- Perfil / Senha ----------
-Acessar a tela de mudar senha
+Acessar a aba perfil
     Click Button    ${MENU_PERFIL}
     Wait Until Element Is Visible    ${LINK_MUDAR_SENHA}    timeout=${TIMEOUT}
+
+Clicar em mudar senha
     Click Element    ${LINK_MUDAR_SENHA}
     Wait Until Element Is Visible    ${CAMPO_NOVA_SENHA}    timeout=${TIMEOUT}
 
@@ -112,6 +114,8 @@ Preencher a alteracao de senha
     [Arguments]    ${senha_atual}    ${nova_senha}
     Input Password    ${CAMPO_SENHA_ATUAL}    ${senha_atual}
     Input Password    ${CAMPO_NOVA_SENHA}     ${nova_senha}
+
+Clicar em salvar
     Click Button      ${BOTAO_SALVAR_SENHA}
 
 Verificar mensagem de senha alterada com sucesso

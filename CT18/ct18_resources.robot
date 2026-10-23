@@ -127,7 +127,7 @@ Alterar um caractere do token na URL
     Log    URL com token alterado: ${url_alterada}
     RETURN    ${url_alterada}
 
-Acessar o link em sessao sem login
+Acessar a URL alterada em aba anonima
     [Arguments]    ${url_link}
     Abrir o navegador    alias=anonimo    anonimo=${True}
     Go To    url=${url_link}

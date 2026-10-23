@@ -141,15 +141,15 @@ Abrir a lista de compras
     Click Element    ${CARD_LISTA}
     Wait Until Element Is Visible    ${BOTAO_NOVO_ITEM}    timeout=${TIMEOUT}
 
-Clicar em adicionar item
+Clicar em novo item
     Click Button    ${BOTAO_NOVO_ITEM}
     Wait Until Element Is Visible    ${CARD_PRODUTO}    timeout=${TIMEOUT}
 
-Selecionar o produto deixando a quantidade em branco
+Deixar a quantidade do produto em branco
     Clear Element Text    ${CAMPO_QUANTIDADE_PRODUTO}
     Textfield Value Should Be    ${CAMPO_QUANTIDADE_PRODUTO}    ${EMPTY}
 
-Confirmar a adicao do item
+Clicar em adicionar no card do produto
     Click Button    ${BOTAO_ADICIONAR_PRODUTO}
 
 Verificar alerta de quantidade obrigatoria

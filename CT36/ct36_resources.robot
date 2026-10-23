@@ -1,19 +1,19 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    String
 
 *** Variables ***
 # ---------- Ambiente ----------
 ${BROWSER}                     Chrome
+${CAMINHO_BRAVE}              C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe
 ${URL}                         http://localhost/mykeeper
 ${HEADLESS}                    False
 ${TIMEOUT}                     10s
 
 # ---------- Massa de dados ----------
-${NOME_USUARIO}                Usuario Teste CT18
+${NOME_USUARIO}                Usuario Teste CT36
 ${CEP_USUARIO}                 80215-901
 ${SENHA_PADRAO}                Senha@123
-${NOME_LISTA}                  Lista CT18
+${NOME_LISTA}                  Lista CT36
 
 # ---------- Cadastro / Login ----------
 ${CAMPO_NOME}                  id:nome
@@ -26,47 +26,42 @@ ${MENSAGEM_FORMULARIO}         id:error
 ${MSG_CADASTRO_SUCESSO}        Cadastro realizado com êxito
 ${MENU_SAIR}                   id:logoffButtonLink
 
-# ---------- Lista de Compras / Compartilhamento ----------
+# ---------- Lista de Compras ----------
 ${BOTAO_ADICIONAR_LISTA}       id:criarCompras
 ${CAMPO_TITULO_LISTA}          id:titulo
 ${BOTAO_SALVAR_LISTA}          id:addcompras
-${BOTAO_COMPARTILHAR_LISTA}    xpath://div[contains(@class,'card')][.//p[contains(@class,'card-nome')][normalize-space()='${NOME_LISTA}']]//button[normalize-space()='Compartilhar']
-${MSG_LINK_COPIADO}            Link da lista copiado com sucesso.
-${MSG_LINK_INVALIDO}           Lista não encontrada.
+${CARD_LISTA}                  xpath://div[contains(@class,'card')][.//p[contains(@class,'card-nome')][normalize-space()='${NOME_LISTA}']]
+${BOTAO_ARQUIVAR_LISTA}        ${CARD_LISTA}//button[contains(@class,'btn-arquivar')]
+${BADGE_STATUS_LISTA}          ${CARD_LISTA}//*[contains(@class,'badge-status')]
+${BOTAO_CONFIRMAR}             css:.notificacao-confirmar
 
 *** Keywords ***
 # ---------- Navegador ----------
 Abrir o navegador
-    [Arguments]    ${alias}=principal    ${anonimo}=${False}
-    ${opcoes}=    Montar opcoes do navegador    ${anonimo}
-    Open Browser    ${URL}    ${BROWSER}    alias=${alias}    options=${opcoes}
+    ${opcoes}=    Montar opcoes do navegador
+    Open Browser    ${URL}    ${BROWSER}    options=${opcoes}
     Maximize Browser Window
 
 Montar opcoes do navegador
-    [Arguments]    ${anonimo}=${False}
-    ${opcoes}=    Set Variable    add_argument("--window-size=1920,1080")
+    ${opcoes}=    Set Variable    add_argument("--window-size=1920,1080");binary_location="${CAMINHO_BRAVE}"
     IF    $HEADLESS.lower() == 'true'
         ${opcoes}=    Set Variable    ${opcoes};add_argument("--headless=new")
-    END
-    IF    ${anonimo}
-        ${opcoes}=    Set Variable    ${opcoes};add_argument("--incognito")
     END
     RETURN    ${opcoes}
 
 Fechar o navegador
     Capture Page Screenshot
-    # O caso abre um segundo navegador (anonimo), fecha os dois
-    Close All Browsers
+    Close Browser
 
 # ---------- Massa de dados ----------
 Preparar massa de dados do caso
     ${id_execucao}=    Evaluate    str(time.time_ns())    modules=time
-    Set Suite Variable    ${EMAIL_USUARIO}    teste_${id_execucao}_ct18@teste.com
-    Abrir o navegador    alias=preparacao
+    Set Suite Variable    ${EMAIL_USUARIO}    teste_${id_execucao}_ct36@teste.com
+    Abrir o navegador
     Cadastrar usuario de teste
     Efetuar login no MyKeeper
     Cadastrar lista de compras
-    Close All Browsers
+    Close Browser
 
 Cadastrar usuario de teste
     Go To    url=${URL}/usuario_cadastro
@@ -98,42 +93,21 @@ Efetuar login no MyKeeper
     Wait Until Location Contains    /home    timeout=${TIMEOUT}
     Wait Until Element Is Visible   ${MENU_SAIR}    timeout=${TIMEOUT}
 
-# ---------- Lista de Compras / Compartilhamento ----------
+# ---------- Lista de Compras ----------
 Acessar a pagina de listas de compras
+    # Navega: telas como "Adicionar Item" nao exibem o menu lateral
     Go To    url=${URL}/compras
     Wait Until Element Is Visible    ${BOTAO_ADICIONAR_LISTA}    timeout=${TIMEOUT}
 
-Gerar link de compartilhamento da lista
+Arquivar a lista de compras
     Acessar a pagina de listas de compras
-    # O sistema copia o link para a area de transferencia; intercepta a API do navegador
-    Execute Javascript    window.__linkCopiado = null; navigator.clipboard.writeText = (t) => { window.__linkCopiado = t; return Promise.resolve(); };
-    Click Button    ${BOTAO_COMPARTILHAR_LISTA}
-    Wait Until Page Contains    ${MSG_LINK_COPIADO}    timeout=${TIMEOUT}
-    Wait For Condition    return window.__linkCopiado !== null    timeout=${TIMEOUT}
-    ${link}=    Execute Javascript    return window.__linkCopiado
-    Log    Link gerado pelo sistema: ${link}
-    # Reaproveita so a rota(o dominio pode ser ngrok) e monta a URL com ${URL}
-    ${rota}=    Evaluate    (lambda u: u.path.rsplit('/', 1)[-1] + '?' + u.query)(urllib.parse.urlsplit($link))    modules=urllib.parse
-    Should Contain    ${rota}    token=
-    RETURN    ${URL}/${rota}
+    Wait Until Element Is Visible    ${CARD_LISTA}    timeout=${TIMEOUT}
+    Click Button    ${BOTAO_ARQUIVAR_LISTA}
+    Wait Until Element Is Visible    ${BOTAO_CONFIRMAR}    timeout=${TIMEOUT}
+    Click Button    ${BOTAO_CONFIRMAR}
 
-Alterar um caractere do token na URL
-    [Arguments]    ${url_link}
-    ${ultimo}=    Get Substring    ${url_link}    -1
-    ${novo}=      Set Variable If    '${ultimo}' == 'a'    b    a
-    ${prefixo}=   Get Substring    ${url_link}    0    -1
-    ${url_alterada}=    Set Variable    ${prefixo}${novo}
-    Should Not Be Equal    ${url_alterada}    ${url_link}
-    Log    URL com token alterado: ${url_alterada}
-    RETURN    ${url_alterada}
-
-Acessar a URL alterada em aba anonima
-    [Arguments]    ${url_link}
-    Abrir o navegador    alias=anonimo    anonimo=${True}
-    Go To    url=${url_link}
-    Wait Until Page Contains Element    tag:body    timeout=${TIMEOUT}
-
-Verificar que o link foi recusado sem expor a lista
-    Wait Until Page Contains    ${MSG_LINK_INVALIDO}    timeout=${TIMEOUT}
-    Page Should Not Contain    ${NOME_LISTA}
-    Page Should Not Contain Element    tag:table
+Verificar que a lista foi arquivada
+    Wait Until Element Contains    ${BADGE_STATUS_LISTA}    Arquivada    timeout=${TIMEOUT}
+    ...    error=A lista nao exibiu o status "Arquivada" apos a acao.
+    Page Should Not Contain Element    ${BOTAO_ARQUIVAR_LISTA}
+    ...    message=Os botoes de acao continuam disponiveis em uma lista arquivada.

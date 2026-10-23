@@ -4,16 +4,18 @@ Library    SeleniumLibrary
 *** Variables ***
 # ---------- Ambiente ----------
 ${BROWSER}                     Chrome
+${CAMINHO_BRAVE}              C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe
 ${URL}                         http://localhost/mykeeper
 ${HEADLESS}                    False
 ${TIMEOUT}                     10s
 
 # ---------- Massa de dados ----------
-${NOME_USUARIO}                Usuario Teste CT20
+${NOME_USUARIO}                Usuario Teste CT35
 ${CEP_USUARIO}                 80215-901
 ${SENHA_PADRAO}                Senha@123
-${TITULO_TICKET}               Ticket CT20
-${DESCRICAO_TICKET}            Ticket criado pela automacao para testar o chat
+${TITULO_TICKET}               Ticket CT35
+${DESCRICAO_TICKET}            Ticket criado pela automacao para testar o envio de mensagem
+${MENSAGEM_CHAT}               Mensagem CT35 enviada pela automacao
 
 # ---------- Cadastro / Login ----------
 ${CAMPO_NOME}                  id:nome
@@ -35,9 +37,6 @@ ${BOTAO_CRIAR_TICKET}          id:criarTicket
 ${LINK_CHAT_TICKET}            xpath://tr[td[normalize-space()='${TITULO_TICKET}']]//a[normalize-space()='Chat']
 ${CAMPO_MENSAGEM_CHAT}         id:input-mensagem
 ${BOTAO_ENVIAR_CHAT}           id:btn-enviar
-${ALERTA_CHAT}                 id:error-chat
-${MENSAGENS_CHAT}              css:#chat-messages .msg
-${MSG_CHAT_VAZIO}              Digite uma mensagem antes de enviar.
 
 *** Keywords ***
 # ---------- Navegador ----------
@@ -47,7 +46,7 @@ Abrir o navegador
     Maximize Browser Window
 
 Montar opcoes do navegador
-    ${opcoes}=    Set Variable    add_argument("--window-size=1920,1080")
+    ${opcoes}=    Set Variable    add_argument("--window-size=1920,1080");binary_location="${CAMINHO_BRAVE}"
     IF    $HEADLESS.lower() == 'true'
         ${opcoes}=    Set Variable    ${opcoes};add_argument("--headless=new")
     END
@@ -60,7 +59,7 @@ Fechar o navegador
 # ---------- Massa de dados ----------
 Preparar massa de dados do caso
     ${id_execucao}=    Evaluate    str(time.time_ns())    modules=time
-    Set Suite Variable    ${EMAIL_USUARIO}    teste_${id_execucao}_ct20@teste.com
+    Set Suite Variable    ${EMAIL_USUARIO}    teste_${id_execucao}_ct35@teste.com
     Abrir o navegador
     Cadastrar usuario de teste
     Efetuar login no MyKeeper
@@ -103,31 +102,21 @@ Acessar a pagina de tickets
     Click Button    ${MENU_TICKETS}
     Wait Until Element Is Visible    ${BOTAO_ADICIONAR_TICKET}    timeout=${TIMEOUT}
 
-Abrir o chat de suporte
+Abrir o chat do ticket
     Acessar a pagina de tickets
     Click Element    ${LINK_CHAT_TICKET}
     Wait Until Element Is Visible    ${CAMPO_MENSAGEM_CHAT}    timeout=${TIMEOUT}
 
-Contar mensagens do chat
-    ${qtd}=    Get Element Count    ${MENSAGENS_CHAT}
-    RETURN    ${qtd}
-
-Clicar em enviar com a mensagem vazia
-    Clear Element Text    ${CAMPO_MENSAGEM_CHAT}
+Enviar mensagem no chat
+    [Arguments]    ${texto}
+    Input Text      ${CAMPO_MENSAGEM_CHAT}    ${texto}
     Click Button    ${BOTAO_ENVIAR_CHAT}
 
-Pressionar ENTER com a mensagem vazia
-    Clear Element Text    ${CAMPO_MENSAGEM_CHAT}
-    Press Keys    ${CAMPO_MENSAGEM_CHAT}    RETURN
-
-Recarregar o chat
+Verificar que a mensagem foi enviada e registrada
+    [Arguments]    ${texto}
+    Wait Until Page Contains    ${texto}    timeout=${TIMEOUT}
+    ...    error=A mensagem enviada nao apareceu no historico do chat.
     Reload Page
     Wait Until Element Is Visible    ${CAMPO_MENSAGEM_CHAT}    timeout=${TIMEOUT}
-    Element Text Should Be    ${ALERTA_CHAT}    ${EMPTY}
-
-Verificar que o envio vazio foi bloqueado
-    [Arguments]    ${qtd_antes}
-    Wait Until Element Contains    ${ALERTA_CHAT}    ${MSG_CHAT_VAZIO}    timeout=${TIMEOUT}
-    ${qtd_depois}=    Contar mensagens do chat
-    Should Be Equal As Integers    ${qtd_depois}    ${qtd_antes}
-    ...    msg=Uma mensagem vazia foi adicionada ao historico do chat.
+    Wait Until Page Contains    ${texto}    timeout=${TIMEOUT}
+    ...    error=A mensagem nao foi persistida: sumiu apos recarregar o chat.

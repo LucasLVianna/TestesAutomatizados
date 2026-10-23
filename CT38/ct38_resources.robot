@@ -4,19 +4,23 @@ Library    SeleniumLibrary
 *** Variables ***
 # ---------- Ambiente ----------
 ${BROWSER}                     Chrome
+${CAMINHO_BRAVE}              C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe
 ${URL}                         http://localhost/mykeeper
 ${HEADLESS}                    False
 ${TIMEOUT}                     10s
 
 # ---------- Massa de dados ----------
-${NOME_USUARIO}                Usuario Teste CT17
+${NOME_USUARIO}                Usuario Teste CT38
 ${CEP_USUARIO}                 80215-901
 ${SENHA_PADRAO}                Senha@123
-${NOME_CATEGORIA}              Mercearia CT17
-${DESCRICAO_CATEGORIA}         Alimentos secos
-${NOME_PRODUTO}                Arroz CT17
+${NOME_CATEGORIA}              Laticinios CT38
+${DESCRICAO_CATEGORIA}         Itens da geladeira
+${NOME_PRODUTO}                Queijo CT38
 ${UNIDADE_PRODUTO}             Quilo (Kg)
-${NOME_LISTA}                  Lista CT17
+${NOME_ESTOQUE}                Geladeira CT38
+${QUANTIDADE_INICIAL}          2
+${NOVA_QUANTIDADE}             5
+${NOVA_VALIDADE}               2030-12-31
 
 # ---------- Cadastro / Login ----------
 ${CAMPO_NOME}                  id:nome
@@ -38,17 +42,24 @@ ${SELECT_CATEGORIA_PRODUTO}    id:categoria_produto
 ${SELECT_UNIDADE_PRODUTO}      id:und_medida_produto
 ${BOTAO_ADD_PRODUTO}           id:addproduto
 
-# ---------- Lista de Compras ----------
-${BOTAO_ADICIONAR_LISTA}       id:criarCompras
-${CAMPO_TITULO_LISTA}          id:titulo
-${BOTAO_SALVAR_LISTA}          id:addcompras
-${CARD_LISTA}                  xpath://p[contains(@class,'card-nome')][normalize-space()='${NOME_LISTA}']
+# ---------- Estoque / Itens ----------
+${CAMPO_NOME_ESTOQUE}          id:nome_estoque
+${BOTAO_ADD_ESTOQUE}           id:addestoque
+${CARD_ESTOQUE}                xpath://div[contains(@class,'card')][.//div[contains(@class,'card-nome')][normalize-space()='${NOME_ESTOQUE}']]
 ${BOTAO_NOVO_ITEM}             id:adicionarItem
-${CARD_PRODUTO}                xpath://div[contains(@class,'card')][div[contains(@class,'card-nome')][normalize-space()='${NOME_PRODUTO}']]
-${CAMPO_QUANTIDADE_PRODUTO}    ${CARD_PRODUTO}//input[@placeholder='Quantidade']
-${BOTAO_ADICIONAR_PRODUTO}     ${CARD_PRODUTO}//button[normalize-space()='+ Adicionar']
-${ALERTA_QUANTIDADE_OBRIGATORIA}    xpath://*[not(self::script)][contains(translate(normalize-space(text()),'QUANTIDADEOBRIGATÓ','quantidadeobrigató'),'quantidade') and contains(translate(normalize-space(text()),'QUANTIDADEOBRIGATÓ','quantidadeobrigató'),'obrigat')]
-${MSG_LISTA_SEM_ITENS}         Não há itens cadastrados nesta lista de compra.
+${CARD_PRODUTO_ADICIONAR}      xpath://div[contains(@class,'card')][.//div[contains(@class,'card-nome')][normalize-space()='${NOME_PRODUTO}']]
+${CAMPO_QUANTIDADE_ADICIONAR}  ${CARD_PRODUTO_ADICIONAR}//input[starts-with(@id,'quantidade-')]
+${BOTAO_ADICIONAR_ITEM}        ${CARD_PRODUTO_ADICIONAR}//button[normalize-space()='+ Adicionar']
+${MSG_ITEM_ADICIONADO}         Item adicionado com sucesso
+${CARD_ITEM}                   xpath://div[contains(@class,'card')][.//div[contains(@class,'card-nome')][normalize-space()='${NOME_PRODUTO}']]
+${LINK_EDITAR_ITEM}            ${CARD_ITEM}//a[normalize-space()='Editar']
+
+# ---------- Alterar item ----------
+${CAMPO_QUANTIDADE_ITEM}       id:quantidade
+${CAMPO_VALIDADE_ITEM}         id:data_validade
+${BOTAO_SALVAR_ITEM}           id:alteraritem
+${MENSAGEM_ALTERACAO}          id:error
+${MSG_ITEM_ALTERADO}           SUCESSO! Item alterado com sucesso
 
 *** Keywords ***
 # ---------- Navegador ----------
@@ -58,7 +69,7 @@ Abrir o navegador
     Maximize Browser Window
 
 Montar opcoes do navegador
-    ${opcoes}=    Set Variable    add_argument("--window-size=1920,1080")
+    ${opcoes}=    Set Variable    add_argument("--window-size=1920,1080");binary_location="${CAMINHO_BRAVE}"
     IF    $HEADLESS.lower() == 'true'
         ${opcoes}=    Set Variable    ${opcoes};add_argument("--headless=new")
     END
@@ -68,16 +79,17 @@ Fechar o navegador
     Capture Page Screenshot
     Close Browser
 
-# ---------- Massa de dados  ----------
+# ---------- Massa de dados ----------
 Preparar massa de dados do caso
     ${id_execucao}=    Evaluate    str(time.time_ns())    modules=time
-    Set Suite Variable    ${EMAIL_USUARIO}    teste_${id_execucao}_ct17@teste.com
+    Set Suite Variable    ${EMAIL_USUARIO}    teste_${id_execucao}_ct38@teste.com
     Abrir o navegador
     Cadastrar usuario de teste
     Efetuar login no MyKeeper
     Cadastrar categoria
     Cadastrar produto
-    Cadastrar lista de compras
+    Cadastrar estoque
+    Adicionar produto ao estoque
     Close Browser
 
 Cadastrar usuario de teste
@@ -111,14 +123,21 @@ Cadastrar produto
     Wait Until Location Does Not Contain    produto_novo    timeout=${TIMEOUT}
     Wait Until Page Contains    ${NOME_PRODUTO}    timeout=${TIMEOUT}
 
-Cadastrar lista de compras
-    Acessar a pagina de listas de compras
-    Click Button    ${BOTAO_ADICIONAR_LISTA}
-    Wait Until Element Is Visible    ${CAMPO_TITULO_LISTA}    timeout=${TIMEOUT}
-    Input Text      ${CAMPO_TITULO_LISTA}    ${NOME_LISTA}
-    Click Button    ${BOTAO_SALVAR_LISTA}
-    Wait Until Location Does Not Contain    compras_novo    timeout=${TIMEOUT}
-    Wait Until Page Contains    ${NOME_LISTA}    timeout=${TIMEOUT}
+Cadastrar estoque
+    Go To    url=${URL}/estoque_adicionar
+    Wait Until Element Is Visible    ${CAMPO_NOME_ESTOQUE}    timeout=${TIMEOUT}
+    Input Text      ${CAMPO_NOME_ESTOQUE}    ${NOME_ESTOQUE}
+    Click Button    ${BOTAO_ADD_ESTOQUE}
+    Wait Until Location Does Not Contain    estoque_adicionar    timeout=${TIMEOUT}
+    Wait Until Page Contains    ${NOME_ESTOQUE}    timeout=${TIMEOUT}
+
+Adicionar produto ao estoque
+    Abrir a tela de itens do estoque
+    Click Button    ${BOTAO_NOVO_ITEM}
+    Wait Until Element Is Visible    ${CARD_PRODUTO_ADICIONAR}    timeout=${TIMEOUT}
+    Input Text    ${CAMPO_QUANTIDADE_ADICIONAR}    ${QUANTIDADE_INICIAL}
+    Click Button    ${BOTAO_ADICIONAR_ITEM}
+    Wait Until Page Contains    ${MSG_ITEM_ADICIONADO}    timeout=${TIMEOUT}
 
 # ---------- Login ----------
 Efetuar login no MyKeeper
@@ -130,34 +149,29 @@ Efetuar login no MyKeeper
     Wait Until Location Contains    /home    timeout=${TIMEOUT}
     Wait Until Element Is Visible   ${MENU_SAIR}    timeout=${TIMEOUT}
 
-# ---------- Lista de Compras ----------
-Acessar a pagina de listas de compras
-    # Navega: telas como "Adicionar Item" nao exibem o menu lateral
-    Go To    url=${URL}/compras
-    Wait Until Element Is Visible    ${BOTAO_ADICIONAR_LISTA}    timeout=${TIMEOUT}
-
-Abrir a lista de compras
-    Acessar a pagina de listas de compras
-    Click Element    ${CARD_LISTA}
+# ---------- Estoque ----------
+Abrir a tela de itens do estoque
+    Go To    url=${URL}/estoque
+    Wait Until Element Is Visible    ${CARD_ESTOQUE}    timeout=${TIMEOUT}
+    Click Element    ${CARD_ESTOQUE}
     Wait Until Element Is Visible    ${BOTAO_NOVO_ITEM}    timeout=${TIMEOUT}
 
-Clicar em novo item
-    Click Button    ${BOTAO_NOVO_ITEM}
-    Wait Until Element Is Visible    ${CARD_PRODUTO}    timeout=${TIMEOUT}
+Abrir a tela de edicao do item
+    Abrir a tela de itens do estoque
+    Wait Until Element Is Visible    ${CARD_ITEM}    timeout=${TIMEOUT}
+    Click Element    ${LINK_EDITAR_ITEM}
+    Wait Until Element Is Visible    ${CAMPO_QUANTIDADE_ITEM}    timeout=${TIMEOUT}
 
-Deixar a quantidade do produto em branco
-    Clear Element Text    ${CAMPO_QUANTIDADE_PRODUTO}
-    Textfield Value Should Be    ${CAMPO_QUANTIDADE_PRODUTO}    ${EMPTY}
+Alterar quantidade e validade do item
+    Clear Element Text    ${CAMPO_QUANTIDADE_ITEM}
+    Input Text            ${CAMPO_QUANTIDADE_ITEM}    ${NOVA_QUANTIDADE}
+    # campo do tipo data: preenchido via JavaScript para nao depender do formato do navegador
+    Execute Javascript    document.getElementById('data_validade').value = '${NOVA_VALIDADE}';
+    Click Button          ${BOTAO_SALVAR_ITEM}
 
-Clicar em adicionar no card do produto
-    Click Button    ${BOTAO_ADICIONAR_PRODUTO}
-
-Verificar alerta de quantidade obrigatoria
-    Wait Until Element Is Visible    ${ALERTA_QUANTIDADE_OBRIGATORIA}    timeout=${TIMEOUT}
-    ...    error=O sistema nao exibiu alerta informando que o campo "Quantidade" e obrigatorio.
-
-Verificar que o item nao foi adicionado a lista
-    Abrir a lista de compras
-    Wait Until Page Contains    ${MSG_LISTA_SEM_ITENS}    timeout=${TIMEOUT}
-    ...    error=O item foi adicionado a lista mesmo sem informar a quantidade.
-    Page Should Not Contain    ${NOME_PRODUTO}
+Verificar que o item foi alterado
+    Wait Until Element Contains    ${MENSAGEM_ALTERACAO}    ${MSG_ITEM_ALTERADO}    timeout=${TIMEOUT}
+    ...    error=O sistema nao exibiu a mensagem de alteracao do item.
+    Wait Until Location Contains    estoque_itens    timeout=${TIMEOUT}
+    Wait Until Page Contains    Quantidade: ${NOVA_QUANTIDADE}    timeout=${TIMEOUT}
+    ...    error=A listagem nao exibiu a nova quantidade do item.

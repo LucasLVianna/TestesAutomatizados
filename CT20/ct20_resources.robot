@@ -103,7 +103,7 @@ Acessar a pagina de tickets
     Click Button    ${MENU_TICKETS}
     Wait Until Element Is Visible    ${BOTAO_ADICIONAR_TICKET}    timeout=${TIMEOUT}
 
-Abrir o chat do ticket
+Abrir o chat de suporte
     Acessar a pagina de tickets
     Click Element    ${LINK_CHAT_TICKET}
     Wait Until Element Is Visible    ${CAMPO_MENSAGEM_CHAT}    timeout=${TIMEOUT}

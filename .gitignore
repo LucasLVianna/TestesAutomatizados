@@ -3,5 +3,3 @@ resultados/
 
 __pycache__/
 *.pyc
-
-selenium-screenshot-*.png

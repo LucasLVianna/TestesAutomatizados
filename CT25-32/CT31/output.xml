@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.14.7 on win32)" generated="2026-10-23T00:21:15.552729" rpa="false" schemaversion="5">
+<suite id="s1" name="Ct31 Teste" source="C:\Users\andre\PUC\4 - Periodo\VeriVal\TestesAutomatizados\CT25-32\CT31\ct31_teste.robot">
+<test id="s1-t1" name="CT31 - Logoff impede acesso a página protegida" line="9">
+<kw name="Abrir o navegador e fazer login" owner="ct31_resources" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:21:16.370768" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/mykeeper/usuario_login'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-23T00:21:16.370313" elapsed="2.397591"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-23T00:21:18.768882" elapsed="0.064677"/>
+</kw>
+<kw name="Realizar login" owner="ct31_resources">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T00:21:18.839790" elapsed="0.075840"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:21:18.917563" level="INFO">Typing text 'teste@teste.com' into text field 'id:email'.</msg>
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:21:18.916180" elapsed="0.340077"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:21:19.257522" level="INFO">Typing password into text field 'id:senha'.</msg>
+<msg time="2026-10-23T00:21:19.329100" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_LOGIN_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:21:19.256759" elapsed="0.202175"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:21:19.675278" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T00:21:19.459616" elapsed="0.215911"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:21:19.677935" level="INFO">Clicking element 'css:button[type="submit"]'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:21:19.675998" elapsed="0.123683"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ELEMENTO_POS_LOGIN}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T00:21:19.800215" elapsed="1.449933"/>
+</kw>
+<arg>${USUARIO_VALIDO}</arg>
+<arg>${SENHA_VALIDA}</arg>
+<status status="PASS" start="2026-10-23T00:21:18.835305" elapsed="2.415771"/>
+</kw>
+<status status="PASS" start="2026-10-23T00:21:16.367543" elapsed="4.883824"/>
+</kw>
+<kw name="Guardar URL da pagina protegida" owner="ct31_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:21:21.255254" level="INFO">Clicking element 'id:estoquesButtonLink'.</msg>
+<arg>${MENU_ESTOQUES}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:21:21.254585" elapsed="0.274085"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${TITULO_PAGINA_PROTEGIDA}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T00:21:21.529178" elapsed="0.076537"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:21:21.646228" level="INFO">${url} = http://localhost/mykeeper/estoque</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-10-23T00:21:21.606111" elapsed="0.040256"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-10-23T00:21:21.648263" level="INFO">URL protegida: http://localhost/mykeeper/estoque</msg>
+<arg>URL protegida: ${url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-10-23T00:21:21.647010" elapsed="0.001415"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:21:21.788262" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T00:21:21.649014" elapsed="0.139464"/>
+</kw>
+<return>
+<value>${url}</value>
+<status status="PASS" start="2026-10-23T00:21:21.788667" elapsed="0.000149"/>
+</return>
+<msg time="2026-10-23T00:21:21.789612" level="INFO">${url_protegida} = http://localhost/mykeeper/estoque</msg>
+<var>${url_protegida}</var>
+<status status="PASS" start="2026-10-23T00:21:21.253392" elapsed="0.536326"/>
+</kw>
+<kw name="Fazer logoff" owner="ct31_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:21:21.792257" level="INFO">Clicking element 'id:logoffButtonLink'.</msg>
+<arg>${BOTAO_SAIR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:21:21.791625" elapsed="0.443903"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${START_BOTAO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<arg>error=Após clicar em Sair, o sistema não voltou para a página principal.</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T00:21:22.236042" elapsed="0.034997"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:21:22.433672" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T00:21:22.271678" elapsed="0.165914"/>
+</kw>
+<status status="PASS" start="2026-10-23T00:21:21.790776" elapsed="0.647278"/>
+</kw>
+<kw name="Acesso a pagina protegida deve ser bloqueado" owner="ct31_resources">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:21:22.441839" level="INFO">Opening url 'http://localhost/mykeeper/estoque'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-10-23T00:21:22.441225" elapsed="0.089206"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<arg>error=Página protegida (${url}) acessível após o logoff: a sessão não foi encerrada.</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T00:21:22.531453" elapsed="0.047772"/>
+</kw>
+<kw name="Page Should Not Contain Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:21:22.593967" level="INFO">Current page does not contain element 'id:logoffButtonLink'.</msg>
+<arg>${BOTAO_SAIR}</arg>
+<arg>message=O menu do usuário logado continua visível após o logoff.</arg>
+<doc>Verifies that element ``locator`` is not found on the current page.</doc>
+<status status="PASS" start="2026-10-23T00:21:22.579669" elapsed="0.014514"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:21:22.607673" level="INFO">${url_atual} = http://localhost/mykeeper/usuario_login</msg>
+<var>${url_atual}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-10-23T00:21:22.594667" elapsed="0.013138"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-10-23T00:21:22.609538" level="INFO">Após acessar a URL protegida, o sistema redirecionou para: http://localhost/mykeeper/usuario_login</msg>
+<arg>Após acessar a URL protegida, o sistema redirecionou para: ${url_atual}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-10-23T00:21:22.608573" elapsed="0.001149"/>
+</kw>
+<arg>${url_protegida}</arg>
+<status status="PASS" start="2026-10-23T00:21:22.440263" elapsed="0.169714"/>
+</kw>
+<kw name="Fechar o navegador" owner="ct31_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:21:22.726616" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T00:21:22.611910" elapsed="0.114957"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-23T00:21:22.727249" elapsed="2.750424"/>
+</kw>
+<status status="PASS" start="2026-10-23T00:21:22.610870" elapsed="2.867476"/>
+</kw>
+<doc>Após o logoff, acessar uma página protegida pela URL
+deve redirecionar para a página principal, sem sessão ativa.</doc>
+<tag>caixa_preta</tag>
+<tag>seguranca</tag>
+<tag>sessao</tag>
+<status status="PASS" start="2026-10-23T00:21:16.365236" elapsed="9.114450"/>
+</test>
+<doc>CT31 - Logoff (versão comportamental do teste de caixa-branca).</doc>
+<status status="PASS" start="2026-10-23T00:21:15.557896" elapsed="9.926143"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">caixa_preta</stat>
+<stat pass="1" fail="0" skip="0">seguranca</stat>
+<stat pass="1" fail="0" skip="0">sessao</stat>
+</tag>
+<suite>
+<stat name="Ct31 Teste" id="s1" pass="1" fail="0" skip="0">Ct31 Teste</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

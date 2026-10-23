@@ -1,0 +1,2011 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.14.7 on win32)" generated="2026-10-22T23:15:27.821490" rpa="false" schemaversion="5">
+<suite id="s1" name="Ct25 Teste" source="C:\Users\andre\PUC\4 - Periodo\VeriVal\TestesAutomatizados\CT25-32\CT25\ct25_teste.robot">
+<test id="s1-t1" name="CT25 - Filtrar produtos por nome na adição de itens ao estoque" line="9">
+<kw name="Abrir o navegador e fazer login" owner="ct25_resources" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:15:29.629012" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/mykeeper/usuario_login'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-22T23:15:29.628319" elapsed="4.851229"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-22T23:15:34.480716" elapsed="0.038067"/>
+</kw>
+<kw name="Realizar login" owner="ct25_resources">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-22T23:15:34.520734" elapsed="0.098711"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:15:34.620646" level="INFO">Typing text 'teste@teste.com' into text field 'id:email'.</msg>
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:15:34.619921" elapsed="0.528056"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:15:35.149354" level="INFO">Typing password into text field 'id:senha'.</msg>
+<msg time="2026-10-22T23:15:35.263211" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_LOGIN_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:15:35.148497" elapsed="0.223488"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:15:35.523935" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-22T23:15:35.372832" elapsed="0.151351"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:15:35.528655" level="INFO">Clicking element 'css:button[type="submit"]'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:15:35.524667" elapsed="0.362656"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ELEMENTO_POS_LOGIN}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-22T23:15:35.887807" elapsed="1.425544"/>
+</kw>
+<arg>${USUARIO_VALIDO}</arg>
+<arg>${SENHA_VALIDA}</arg>
+<status status="PASS" start="2026-10-22T23:15:34.519454" elapsed="2.794188"/>
+</kw>
+<status status="PASS" start="2026-10-22T23:15:29.624609" elapsed="7.689226"/>
+</kw>
+<kw name="Abrir formulario de novo item no estoque" owner="ct25_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:15:37.318695" level="INFO">Clicking element 'id:estoquesButtonLink'.</msg>
+<arg>${MENU_ESTOQUES}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:15:37.317941" elapsed="0.311154"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CARD_ESTOQUE}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-22T23:15:37.629569" elapsed="0.299430"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:15:37.930187" level="INFO">Clicking element 'xpath://div[contains(@class, 'card-nome') and normalize-space()='Geladeira Principal']'.</msg>
+<arg>${CARD_ESTOQUE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:15:37.929540" elapsed="0.185949"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${TITULO_ITENS_ESTOQUE}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-22T23:15:38.116112" elapsed="0.034305"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_NOVO_ITEM}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-22T23:15:38.150947" elapsed="0.070529"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:15:38.223220" level="INFO">Clicking element 'id:adicionarItem'.</msg>
+<arg>${BOTAO_NOVO_ITEM}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:15:38.222041" elapsed="0.183442"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${TITULO_ADICIONAR_ITEM}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-22T23:15:38.406894" elapsed="0.028429"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_FILTRO_PRODUTO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-22T23:15:38.435822" elapsed="0.150056"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:15:38.709183" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-22T23:15:38.586371" elapsed="0.123054"/>
+</kw>
+<status status="PASS" start="2026-10-22T23:15:37.316918" elapsed="1.392760"/>
+</kw>
+<kw name="Filtrar produtos por nome" owner="ct25_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:15:38.712512" level="INFO">Typing text 'Queijo' into text field 'id:buscar-produto'.</msg>
+<arg>${CAMPO_FILTRO_PRODUTO}</arg>
+<arg>${termo}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:15:38.711726" elapsed="0.206408"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-10-22T23:15:39.920043" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-10-22T23:15:38.918564" elapsed="1.001726"/>
+</kw>
+<arg>${TERMO_FILTRO}</arg>
+<status status="PASS" start="2026-10-22T23:15:38.710688" elapsed="1.209867"/>
+</kw>
+<kw name="Todos os produtos listados devem conter" owner="ct25_resources">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:15:39.955407" level="INFO">${cards} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.209")&gt;, &lt;selenium.webdri...</msg>
+<var>${cards}</var>
+<arg>${CARDS_PRODUTO}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:15:39.925459" elapsed="0.030102"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-22T23:15:39.957841" level="INFO">Length is 39.</msg>
+<arg>${cards}</arg>
+<arg>Nenhum produto foi exibido após o filtro.</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-22T23:15:39.956181" elapsed="0.001963"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<msg time="2026-10-22T23:15:39.959659" level="INFO">${termo_min} = queijo</msg>
+<var>${termo_min}</var>
+<arg>${termo}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="PASS" start="2026-10-22T23:15:39.958586" elapsed="0.001263"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-22T23:15:39.961721" level="INFO">${exibidos} = 0</msg>
+<var>${exibidos}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-22T23:15:39.960362" elapsed="0.001473"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:39.993251" level="INFO">${visivel} = True</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:39.963207" elapsed="0.030166"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="NOT RUN" start="2026-10-22T23:15:39.994986" elapsed="0.000099"/>
+</continue>
+<status status="NOT RUN" start="2026-10-22T23:15:39.993757" elapsed="0.001471"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:39.993638" elapsed="0.001723"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:15:40.018660" level="INFO">${texto} = Queijo Mussarela</msg>
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:15:39.995704" elapsed="0.023073"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<msg time="2026-10-22T23:15:40.019753" level="INFO">${texto_min} = queijo mussarela</msg>
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.019206" elapsed="0.000646"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.020340" elapsed="0.001141"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.025222" level="INFO">${exibidos} = 1</msg>
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.022038" elapsed="0.003336"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.209")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:39.962813" elapsed="0.062732"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.039540" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.026515" elapsed="0.013165"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.040997" elapsed="0.000183"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.040548" elapsed="0.000833"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.039927" elapsed="0.001601"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.041899" elapsed="0.000206"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.042553" elapsed="0.000106"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.043160" elapsed="0.000099"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.043695" elapsed="0.000090"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.210")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.026167" elapsed="0.017768"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.059138" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.044906" elapsed="0.014350"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.060014" elapsed="0.000146"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.059667" elapsed="0.000639"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.059597" elapsed="0.000846"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.060800" elapsed="0.000113"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.061313" elapsed="0.000103"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.061843" elapsed="0.000094"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.062577" elapsed="0.000133"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.211")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.044532" elapsed="0.018347"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.077790" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.063754" elapsed="0.014158"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.078668" elapsed="0.000107"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.078213" elapsed="0.000697"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.078155" elapsed="0.000867"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.079362" elapsed="0.000110"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.079928" elapsed="0.000108"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.080485" elapsed="0.000099"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.081054" elapsed="0.000092"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.212")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.063417" elapsed="0.017872"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.095687" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.082139" elapsed="0.013667"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.096481" elapsed="0.000106"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.096117" elapsed="0.000594"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.096058" elapsed="0.000769"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.097128" elapsed="0.000088"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.097592" elapsed="0.000115"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.098123" elapsed="0.000095"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.098715" elapsed="0.000102"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.213")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.081808" elapsed="0.017157"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.115533" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.099910" elapsed="0.015735"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.116287" elapsed="0.000119"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.115947" elapsed="0.000678"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.115879" elapsed="0.000876"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.117077" elapsed="0.000099"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.117566" elapsed="0.000096"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.118091" elapsed="0.000100"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.118718" elapsed="0.000137"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.214")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.099585" elapsed="0.019443"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.133360" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.119903" elapsed="0.013587"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.134196" elapsed="0.000116"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.133828" elapsed="0.000621"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.133761" elapsed="0.000841"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.134950" elapsed="0.000109"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.135444" elapsed="0.000111"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.136008" elapsed="0.000107"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.136655" elapsed="0.000132"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.215")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.119570" elapsed="0.017383"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.152790" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.137895" elapsed="0.015035"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.153658" elapsed="0.000131"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.153292" elapsed="0.000645"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.153223" elapsed="0.000849"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.154426" elapsed="0.000112"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.155086" elapsed="0.000228"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.157903" elapsed="0.000164"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.159412" elapsed="0.000157"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.216")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.137520" elapsed="0.022231"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.176102" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.160824" elapsed="0.015419"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.176946" elapsed="0.000122"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.176565" elapsed="0.000652"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.176501" elapsed="0.000846"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.177682" elapsed="0.000116"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.178212" elapsed="0.000116"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.178816" elapsed="0.000140"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.179430" elapsed="0.000116"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.217")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.160394" elapsed="0.019340"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.196528" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.181695" elapsed="0.015013"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.197469" elapsed="0.000138"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.197113" elapsed="0.000654"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.197047" elapsed="0.000841"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.198244" elapsed="0.000117"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.198786" elapsed="0.000113"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.199459" elapsed="0.000113"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.200066" elapsed="0.000115"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.218")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.181291" elapsed="0.019055"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.216438" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.201327" elapsed="0.015231"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.217240" elapsed="0.000114"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.216868" elapsed="0.000614"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.216810" elapsed="0.000795"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.217930" elapsed="0.000101"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.218431" elapsed="0.000101"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.218943" elapsed="0.000090"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.219527" elapsed="0.000104"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.219")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.200934" elapsed="0.018849"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.235881" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.220676" elapsed="0.015321"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.236691" elapsed="0.000125"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.236327" elapsed="0.000634"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.236258" elapsed="0.000830"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.237477" elapsed="0.000183"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.238123" elapsed="0.000116"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.238751" elapsed="0.000142"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.241417" elapsed="0.000149"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.220")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.220319" elapsed="0.021543"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.255560" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.243108" elapsed="0.012572"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.256783" elapsed="0.000346"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.256152" elapsed="0.001177"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.255949" elapsed="0.001560"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.257957" elapsed="0.000130"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.258507" elapsed="0.000098"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.258992" elapsed="0.000092"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.259663" elapsed="0.000122"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.221")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.242725" elapsed="0.017224"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.275450" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.260972" elapsed="0.014606"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.276375" elapsed="0.000117"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.275950" elapsed="0.000695"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.275881" elapsed="0.000911"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.277194" elapsed="0.000120"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.277773" elapsed="0.000109"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.278451" elapsed="0.000112"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.279070" elapsed="0.000092"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.222")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.260628" elapsed="0.018692"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.293311" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.280299" elapsed="0.013124"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.294107" elapsed="0.000120"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.293756" elapsed="0.000609"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.293695" elapsed="0.000790"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.294808" elapsed="0.000108"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.295281" elapsed="0.000098"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.295874" elapsed="0.000100"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.296461" elapsed="0.000177"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.223")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.279929" elapsed="0.016878"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.312791" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.297751" elapsed="0.015160"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.313568" elapsed="0.000115"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.313221" elapsed="0.000622"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.313158" elapsed="0.000799"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.314298" elapsed="0.000121"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.314908" elapsed="0.000113"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.315451" elapsed="0.000107"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.316107" elapsed="0.000117"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.224")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.297365" elapsed="0.019025"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.336284" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.317308" elapsed="0.019093"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.337038" elapsed="0.000114"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.336701" elapsed="0.000590"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.336642" elapsed="0.000787"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.337752" elapsed="0.000123"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.338257" elapsed="0.000096"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.338765" elapsed="0.000098"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.340641" elapsed="0.000151"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.225")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.316950" elapsed="0.024030"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.354543" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.342526" elapsed="0.012127"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.355405" elapsed="0.000132"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.354943" elapsed="0.000736"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.354886" elapsed="0.000919"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.356359" elapsed="0.000115"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.357522" elapsed="0.000122"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.358562" elapsed="0.000123"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.359201" elapsed="0.000091"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.226")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.342144" elapsed="0.017456"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.376145" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.360660" elapsed="0.015602"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.376845" elapsed="0.000105"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.376543" elapsed="0.000523"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.376488" elapsed="0.000680"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.377455" elapsed="0.000084"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.377905" elapsed="0.000079"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.378440" elapsed="0.000089"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.378961" elapsed="0.000082"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.227")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.360301" elapsed="0.018889"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.400028" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.379992" elapsed="0.020188"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.401070" elapsed="0.000210"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.400523" elapsed="0.000934"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.400432" elapsed="0.001175"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.402027" elapsed="0.000119"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.402723" elapsed="0.000153"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.403601" elapsed="0.000137"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.404387" elapsed="0.000168"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.228")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.379687" elapsed="0.025100"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.433634" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.405805" elapsed="0.027956"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.434459" elapsed="0.000117"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.434101" elapsed="0.000674"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.434010" elapsed="0.000940"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.435332" elapsed="0.000204"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.435936" elapsed="0.000084"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.436390" elapsed="0.000082"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.436884" elapsed="0.000085"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.229")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.405382" elapsed="0.031721"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.467405" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.440710" elapsed="0.026827"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.468278" elapsed="0.000128"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.467875" elapsed="0.000686"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.467810" elapsed="0.000892"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.469071" elapsed="0.000123"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.469643" elapsed="0.000095"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.470243" elapsed="0.000129"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.470922" elapsed="0.000112"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.230")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.437859" elapsed="0.033355"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.487357" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.472686" elapsed="0.014801"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.488159" elapsed="0.000120"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.487808" elapsed="0.000625"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.487737" elapsed="0.000830"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.488952" elapsed="0.000126"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.489672" elapsed="0.000124"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.490521" elapsed="0.000147"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.491540" elapsed="0.000144"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.231")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.471797" elapsed="0.020129"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.508895" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.492925" elapsed="0.016082"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.509696" elapsed="0.000134"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.509305" elapsed="0.000675"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.509237" elapsed="0.000879"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.510496" elapsed="0.000128"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.511203" elapsed="0.000131"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.511804" elapsed="0.000101"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.512388" elapsed="0.000102"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.232")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.492527" elapsed="0.020119"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.526941" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.513532" elapsed="0.013532"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.527774" elapsed="0.000122"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.527380" elapsed="0.000662"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.527314" elapsed="0.000861"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.528568" elapsed="0.000115"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.529122" elapsed="0.000114"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.529690" elapsed="0.000120"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.530338" elapsed="0.000099"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.233")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.513198" elapsed="0.017414"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.545902" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.531547" elapsed="0.014474"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.546679" elapsed="0.000115"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.546340" elapsed="0.000589"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.546278" elapsed="0.000798"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.547399" elapsed="0.000096"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.547884" elapsed="0.000090"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.548362" elapsed="0.000093"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.548906" elapsed="0.000086"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.234")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.531156" elapsed="0.018011"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.563813" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.550060" elapsed="0.013864"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.564564" elapsed="0.000110"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.564216" elapsed="0.000599"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.564154" elapsed="0.000786"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.565334" elapsed="0.000113"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.565855" elapsed="0.000096"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.566359" elapsed="0.000087"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.566913" elapsed="0.000115"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.235")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.549721" elapsed="0.017496"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.583373" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.568273" elapsed="0.015222"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.584124" elapsed="0.000116"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.583809" elapsed="0.000551"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.583746" elapsed="0.000724"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.584789" elapsed="0.000087"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.585363" elapsed="0.000112"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.585896" elapsed="0.000085"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.586426" elapsed="0.000107"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.236")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.567887" elapsed="0.018801"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.602068" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.588856" elapsed="0.013321"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.602812" elapsed="0.000110"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.602467" elapsed="0.000583"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.602404" elapsed="0.000763"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.603500" elapsed="0.000106"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.603989" elapsed="0.000110"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.604527" elapsed="0.000105"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.605117" elapsed="0.000089"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.237")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.588250" elapsed="0.017095"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.619855" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.607671" elapsed="0.012298"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.620566" elapsed="0.000107"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.620256" elapsed="0.000562"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.620198" elapsed="0.000742"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.621240" elapsed="0.000089"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.621709" elapsed="0.000088"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.622273" elapsed="0.000113"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.623119" elapsed="0.000215"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.238")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.605874" elapsed="0.017788"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.638055" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.625072" elapsed="0.013109"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.638889" elapsed="0.000110"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.638549" elapsed="0.000590"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.638485" elapsed="0.000785"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.640125" elapsed="0.000131"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.640984" elapsed="0.000132"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.641820" elapsed="0.000121"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.642441" elapsed="0.000096"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.239")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.624632" elapsed="0.018052"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.655733" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.643521" elapsed="0.012457"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.658111" elapsed="0.000193"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.656575" elapsed="0.001972"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.656480" elapsed="0.002231"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.659249" elapsed="0.000289"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.660258" elapsed="0.000546"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.661327" elapsed="0.000115"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.661890" elapsed="0.000107"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.240")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.643210" elapsed="0.018947"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.676766" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.662984" elapsed="0.013901"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.677528" elapsed="0.000111"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.677191" elapsed="0.000596"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.677128" elapsed="0.000819"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.678259" elapsed="0.000091"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.678711" elapsed="0.000088"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.679206" elapsed="0.000104"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.679796" elapsed="0.000144"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.241")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.662660" elapsed="0.017434"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.693387" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.680907" elapsed="0.012591"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.694202" elapsed="0.000108"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.693865" elapsed="0.000584"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.693798" elapsed="0.000819"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.694955" elapsed="0.000113"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.695486" elapsed="0.000147"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.696080" elapsed="0.000106"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.696942" elapsed="0.000143"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.242")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.680596" elapsed="0.016676"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.712506" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.698959" elapsed="0.013654"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.713224" elapsed="0.000110"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.712903" elapsed="0.000560"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.712841" elapsed="0.000745"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.713903" elapsed="0.000102"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.714452" elapsed="0.000107"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.714982" elapsed="0.000099"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.715591" elapsed="0.000110"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.243")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.698523" elapsed="0.017334"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.729670" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.716772" elapsed="0.013016"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.730453" elapsed="0.000112"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.730107" elapsed="0.000593"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.730034" elapsed="0.000795"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.731168" elapsed="0.000101"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.731749" elapsed="0.000102"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.732301" elapsed="0.000117"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.732912" elapsed="0.000096"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.244")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.716410" elapsed="0.016748"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.748050" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.733989" elapsed="0.014199"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.748931" elapsed="0.000135"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.748554" elapsed="0.000669"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.748479" elapsed="0.000899"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.749885" elapsed="0.000130"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.750478" elapsed="0.000116"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.751099" elapsed="0.000113"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.751890" elapsed="0.000126"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.245")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.733687" elapsed="0.018516"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.766886" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.753227" elapsed="0.013789"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.767771" elapsed="0.000132"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.767373" elapsed="0.000685"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.767295" elapsed="0.000911"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.768605" elapsed="0.000124"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.769132" elapsed="0.000170"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.769767" elapsed="0.000107"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.770573" elapsed="0.000133"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.246")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.752827" elapsed="0.018074"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-10-22T23:15:40.785022" level="INFO">${visivel} = False</msg>
+<var>${visivel}</var>
+<arg>${card}</arg>
+<arg>is_displayed</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.772086" elapsed="0.013168"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${visivel}">
+<continue>
+<status status="PASS" start="2026-10-22T23:15:40.786119" elapsed="0.000133"/>
+</continue>
+<status status="PASS" start="2026-10-22T23:15:40.785660" elapsed="0.000736"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:15:40.785589" elapsed="0.000969"/>
+</if>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${texto}</var>
+<arg>${card}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.787058" elapsed="0.000134"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${texto_min}</var>
+<arg>${texto}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.787762" elapsed="0.000175"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${texto_min}</arg>
+<arg>${termo_min}</arg>
+<arg>Produto fora do filtro exibido: ${texto}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.790260" elapsed="0.000157"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${exibidos}</var>
+<arg>${exibidos} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-22T23:15:40.791059" elapsed="0.000134"/>
+</kw>
+<var name="${card}">&lt;selenium.webdriver.remote.webelement.WebElement (session="99161f9a570454a7cc2da15a139e11cd", element="f.2D6CA1DEA9A16644FE15BFDB69C1191D.d.D513691CB7E876651DA7EA2C371FFFA4.e.247")&gt;</var>
+<status status="PASS" start="2026-10-22T23:15:40.771660" elapsed="0.019732"/>
+</iter>
+<var>${card}</var>
+<value>@{cards}</value>
+<status status="PASS" start="2026-10-22T23:15:39.962086" elapsed="0.829523"/>
+</for>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${exibidos} &gt; 0</arg>
+<arg>Nenhum produto visível após o filtro.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.792149" elapsed="0.001239"/>
+</kw>
+<arg>${TERMO_FILTRO}</arg>
+<status status="PASS" start="2026-10-22T23:15:39.921913" elapsed="0.871790"/>
+</kw>
+<kw name="Fechar o navegador" owner="ct25_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:15:40.886742" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.796031" elapsed="0.090967"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-22T23:15:40.887551" elapsed="3.934953"/>
+</kw>
+<status status="PASS" start="2026-10-22T23:15:40.794915" elapsed="4.027885"/>
+</kw>
+<doc>A listagem deve exibir exclusivamente produtos com "Queijo" no nome.</doc>
+<tag>caixa_preta</tag>
+<tag>estoque</tag>
+<tag>funcionalidade</tag>
+<status status="PASS" start="2026-10-22T23:15:29.621609" elapsed="15.201829"/>
+</test>
+<doc>CT25 - Filtrar produtos por nome. Pré-condição: produtos com e sem "Queijo" no nome cadastrados.</doc>
+<status status="PASS" start="2026-10-22T23:15:27.826332" elapsed="17.000643"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">caixa_preta</stat>
+<stat pass="1" fail="0" skip="0">estoque</stat>
+<stat pass="1" fail="0" skip="0">funcionalidade</stat>
+</tag>
+<suite>
+<stat name="Ct25 Teste" id="s1" pass="1" fail="0" skip="0">Ct25 Teste</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

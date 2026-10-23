@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.14.7 on win32)" generated="2026-10-22T23:51:49.781825" rpa="false" schemaversion="5">
+<suite id="s1" name="Ct26 Teste" source="C:\Users\andre\PUC\4 - Periodo\VeriVal\TestesAutomatizados\CT25-32\CT26\ct26_teste.robot">
+<test id="s1-t1" name="CT26 - Inserir item com data de validade vencida" line="10">
+<kw name="Abrir o navegador e fazer login" owner="ct26_resources" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:51:51.342600" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/mykeeper/usuario_login'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-22T23:51:51.337055" elapsed="4.267311"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-22T23:51:55.605102" elapsed="0.088034"/>
+</kw>
+<kw name="Realizar login" owner="ct26_resources">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-22T23:51:55.694922" elapsed="0.177667"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:51:55.874347" level="INFO">Typing text 'teste@teste.com' into text field 'id:email'.</msg>
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:51:55.873516" elapsed="0.938083"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:51:56.812825" level="INFO">Typing password into text field 'id:senha'.</msg>
+<msg time="2026-10-22T23:51:57.101311" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_LOGIN_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:51:56.812072" elapsed="0.402273"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:51:57.367399" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-22T23:51:57.215044" elapsed="0.152886"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:51:57.373750" level="INFO">Clicking element 'css:button[type="submit"]'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:51:57.372725" elapsed="0.143151"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ELEMENTO_POS_LOGIN}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-22T23:51:57.516325" elapsed="1.488608"/>
+</kw>
+<arg>${USUARIO_VALIDO}</arg>
+<arg>${SENHA_VALIDA}</arg>
+<status status="PASS" start="2026-10-22T23:51:55.693834" elapsed="3.311481"/>
+</kw>
+<status status="PASS" start="2026-10-22T23:51:51.332640" elapsed="7.673014"/>
+</kw>
+<kw name="Abrir formulario de novo item no estoque" owner="ct26_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:51:59.010749" level="INFO">Clicking element 'id:estoquesButtonLink'.</msg>
+<arg>${MENU_ESTOQUES}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:51:59.010006" elapsed="0.348203"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CARD_ESTOQUE}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-22T23:51:59.358680" elapsed="0.288571"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:51:59.648462" level="INFO">Clicking element 'xpath://div[contains(@class, 'card-nome') and normalize-space()='Geladeira Principal']'.</msg>
+<arg>${CARD_ESTOQUE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:51:59.647810" elapsed="0.250549"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${TITULO_ITENS_ESTOQUE}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-22T23:51:59.898780" elapsed="0.073449"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_NOVO_ITEM}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-22T23:51:59.972737" elapsed="0.086050"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:52:00.060026" level="INFO">Clicking element 'id:adicionarItem'.</msg>
+<arg>${BOTAO_NOVO_ITEM}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:52:00.059350" elapsed="0.218790"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${TITULO_ADICIONAR_ITEM}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-22T23:52:00.278617" elapsed="0.032517"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_FILTRO_PRODUTO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-22T23:52:00.311733" elapsed="0.127870"/>
+</kw>
+<status status="PASS" start="2026-10-22T23:51:59.009141" elapsed="1.430725"/>
+</kw>
+<kw name="Filtrar produtos por nome" owner="ct26_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:52:00.443494" level="INFO">Typing text 'Iogurte' into text field 'id:buscar-produto'.</msg>
+<arg>${CAMPO_FILTRO_PRODUTO}</arg>
+<arg>${termo}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:52:00.442744" elapsed="0.255385"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-10-22T23:52:01.700037" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-10-22T23:52:00.698588" elapsed="1.001733"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CARD_PRODUTO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-22T23:52:01.700772" elapsed="0.031259"/>
+</kw>
+<arg>${TERMO_FILTRO}</arg>
+<status status="PASS" start="2026-10-22T23:52:00.440710" elapsed="1.291664"/>
+</kw>
+<kw name="Preencher item com validade vencida" owner="ct26_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:52:01.735245" level="INFO">Typing text '1' into text field 'xpath://div[@id='item']/div[contains(@class, 'card') and .//div[contains(@class, 'card-nome') and normalize-space()='Iogurte Natural']]//input[starts-with(@id, 'quantidade-')]'.</msg>
+<arg>${CAMPO_QUANTIDADE_ITEM}</arg>
+<arg>${quantidade}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:52:01.734489" elapsed="0.159748"/>
+</kw>
+<kw name="Data de ontem no formato do campo" owner="ct26_resources">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-10-22T23:52:01.898708" level="INFO">${ontem} = 2026-10-21</msg>
+<var>${ontem}</var>
+<arg>increment=-1 day</arg>
+<arg>result_format=%Y-%m-%d</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-10-22T23:52:01.897159" elapsed="0.001686"/>
+</kw>
+<return>
+<value>${ontem}</value>
+<status status="PASS" start="2026-10-22T23:52:01.899179" elapsed="0.000210"/>
+</return>
+<msg time="2026-10-22T23:52:01.899910" level="INFO">${ontem} = 2026-10-21</msg>
+<var>${ontem}</var>
+<status status="PASS" start="2026-10-22T23:52:01.895443" elapsed="0.004591"/>
+</kw>
+<kw name="Preencher campo de data" owner="ct26_resources">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:52:01.929599" level="INFO">${campo} = &lt;selenium.webdriver.remote.webelement.WebElement (session="16209aa0a61e690003331b377364e35f", element="f.ECCD8AF16C8F78D4F6EFA81AE63E216B.d.AF08E597B655C4332D037FFDEDDA9D43.e.63")&gt;</msg>
+<var>${campo}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:52:01.910657" elapsed="0.019295"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:52:01.934652" level="INFO">Executing JavaScript:
+arguments[0].value = arguments[1];arguments[0].dispatchEvent(new Event('input', {bubbles: true}));arguments[0].dispatchEvent(new Event('change', {bubbles: true}));
+By using arguments:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="16209aa0a61e690003331b377364e35f", element="f.ECCD8AF16C8F78D4F6EFA81AE63E216B.d.AF08E597B655C4332D037FFDEDDA9D43.e.63")&gt;' and '2026-10-21'</msg>
+<arg>arguments[0].value = arguments[1];</arg>
+<arg>arguments[0].dispatchEvent(new Event('input', {bubbles: true}));</arg>
+<arg>arguments[0].dispatchEvent(new Event('change', {bubbles: true}));</arg>
+<arg>ARGUMENTS</arg>
+<arg>${campo}</arg>
+<arg>${data_iso}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-22T23:52:01.932020" elapsed="0.024302"/>
+</kw>
+<arg>${CAMPO_VALIDADE_ITEM}</arg>
+<arg>${ontem}</arg>
+<status status="PASS" start="2026-10-22T23:52:01.900561" elapsed="0.056770"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:52:01.958677" level="INFO">Clicking element 'xpath://div[@id='item']/div[contains(@class, 'card') and .//div[contains(@class, 'card-nome') and normalize-space()='Iogurte Natural']]//div[contains(@class, 'card-botoes')]//button[contains(@onclick, 'adicionar')]'.</msg>
+<arg>${BOTAO_ADICIONAR_ITEM}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-22T23:52:01.957929" elapsed="0.131545"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-10-22T23:52:04.092426" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-10-22T23:52:02.090117" elapsed="2.002641"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:52:04.219296" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-22T23:52:04.093372" elapsed="0.126190"/>
+</kw>
+<return>
+<value>${ontem}</value>
+<status status="PASS" start="2026-10-22T23:52:04.219788" elapsed="0.000146"/>
+</return>
+<msg time="2026-10-22T23:52:04.220369" level="INFO">${ontem} = 2026-10-21</msg>
+<var>${ontem}</var>
+<arg>${QUANTIDADE_ITEM}</arg>
+<status status="PASS" start="2026-10-22T23:52:01.733433" elapsed="2.487038"/>
+</kw>
+<kw name="Sistema deve avisar que o produto esta vencido" owner="ct26_resources">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:52:04.226508" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:03</msg>
+<msg time="2026-10-22T23:52:07.333209" level="FAIL">Alert not found in 3 seconds.</msg>
+<arg>action=ACCEPT</arg>
+<arg>timeout=3s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2026-10-22T23:52:04.225940" elapsed="3.137728">Alert not found in 3 seconds.</status>
+</kw>
+<msg time="2026-10-22T23:52:07.364180" level="INFO">${status} = FAIL</msg>
+<msg time="2026-10-22T23:52:07.364340" level="INFO">${mensagem} = Alert not found in 3 seconds.</msg>
+<var>${status}</var>
+<var>${mensagem}</var>
+<arg>Handle Alert</arg>
+<arg>action=ACCEPT</arg>
+<arg>timeout=3s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible errorw.</doc>
+<status status="PASS" start="2026-10-22T23:52:04.224407" elapsed="3.140024"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'PASS'">
+<kw name="Convert To Lower Case" owner="String">
+<var>${mensagem_min}</var>
+<arg>${mensagem}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-22T23:52:07.365453" elapsed="0.010882"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${mensagem_min}</arg>
+<arg>${TERMO_AVISO}</arg>
+<arg>O alerta exibido não fala de validade vencida: ${mensagem}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-22T23:52:07.376799" elapsed="0.000088"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-10-22T23:52:07.377045" elapsed="0.000069"/>
+</return>
+<status status="NOT RUN" start="2026-10-22T23:52:07.364803" elapsed="0.012405"/>
+</branch>
+<status status="PASS" start="2026-10-22T23:52:07.364713" elapsed="0.012610"/>
+</if>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:52:17.394426" level="FAIL">O sistema não avisou que a validade informada (2026-10-21) já passou.</msg>
+<arg>${AVISO_VENCIDO_PAGINA}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<arg>error=O sistema não avisou que a validade informada (${data}) já passou.</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2026-10-22T23:52:07.377915" elapsed="10.023997">O sistema não avisou que a validade informada (2026-10-21) já passou.</status>
+</kw>
+<arg>${ontem}</arg>
+<status status="FAIL" start="2026-10-22T23:52:04.223291" elapsed="13.179295">O sistema não avisou que a validade informada (2026-10-21) já passou.</status>
+</kw>
+<kw name="Fechar o navegador" owner="ct26_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-22T23:52:17.501232" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-22T23:52:17.406151" elapsed="0.095356"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-22T23:52:17.501933" elapsed="3.240771"/>
+</kw>
+<status status="PASS" start="2026-10-22T23:52:17.404622" elapsed="3.338358"/>
+</kw>
+<doc>O sistema deve avisar que o produto já está vencido.
+Resultado atual registrado na planilha: NOK (o aviso não é exibido).</doc>
+<tag>caixa_preta</tag>
+<tag>estoque</tag>
+<tag>funcionalidade</tag>
+<status status="FAIL" start="2026-10-22T23:51:51.327966" elapsed="29.415441">O sistema não avisou que a validade informada (2026-10-21) já passou.</status>
+</test>
+<doc>CT26 - Validade retroativa.
+Pré-condição: produto "Iogurte Natural" cadastrado e estoque "Geladeira Principal" existente.</doc>
+<status status="FAIL" start="2026-10-22T23:51:49.788190" elapsed="30.957049"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">caixa_preta</stat>
+<stat pass="0" fail="1" skip="0">estoque</stat>
+<stat pass="0" fail="1" skip="0">funcionalidade</stat>
+</tag>
+<suite>
+<stat name="Ct26 Teste" id="s1" pass="0" fail="1" skip="0">Ct26 Teste</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

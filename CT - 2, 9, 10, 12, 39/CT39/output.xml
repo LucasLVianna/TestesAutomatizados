@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.13.3 on win32)" generated="2026-10-23T22:52:12.271577" rpa="false" schemaversion="5">
+<suite id="s1" name="Ct39 Teste" source="C:\Users\User\OneDrive - Grupo Marista\2026_2\Verificação e Validação\PjBl 3\CT9-16\CT39\ct39_teste.robot">
+<test id="s1-t1" name="CT39 - Alterar nome da categoria Laticinios para Frios" line="14">
+<kw name="Abrir o navegador e fazer login" owner="ct39_resources" type="SETUP">
+<kw name="Abrir o navegador" owner="ct39_resources">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:12.906216" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/mykeeper/usuario_login'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-23T22:52:12.905631" elapsed="1.752658"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-23T22:52:14.658719" elapsed="0.052322"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:52:12.903619" elapsed="1.808589"/>
+</kw>
+<kw name="Realizar login" owner="ct39_resources">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T22:52:14.722195" elapsed="0.041806"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:14.766463" level="INFO">Typing text 'user@user.com' into text field 'id:email'.</msg>
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:52:14.764595" elapsed="0.205790"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:14.971372" level="INFO">Typing password into text field 'id:senha'.</msg>
+<msg time="2026-10-23T22:52:15.011615" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_LOGIN_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:52:14.970774" elapsed="0.121902"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:15.283527" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct39_01_login.png"&gt;&lt;img src="ct39_01_login.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT39${/}ct39_01_login.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T22:52:15.093126" elapsed="0.191239"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:15.286557" level="INFO">Clicking element 'css:button[type="submit"]'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:52:15.285609" elapsed="0.067105"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ELEMENTO_POS_LOGIN}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T22:52:15.353165" elapsed="1.191115"/>
+</kw>
+<arg>${USUARIO_VALIDO}</arg>
+<arg>${SENHA_VALIDA}</arg>
+<status status="PASS" start="2026-10-23T22:52:14.718932" elapsed="1.825768"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:52:12.902601" elapsed="3.642276"/>
+</kw>
+<kw name="Acessar pagina de categorias" owner="ct39_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:16.547417" level="INFO">Clicking element 'id:categoriasButtonLink'.</msg>
+<arg>${MENU_CATEGORIAS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:52:16.546979" elapsed="0.218980"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${TITULO_CATEGORIAS}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T22:52:16.766548" elapsed="0.027518"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LINK_EDITAR_CATEGORIA}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T22:52:16.794375" elapsed="0.021814"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:17.049198" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct39_02_categoria_laticinios.png"&gt;&lt;img src="ct39_02_categoria_laticinios.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT39${/}ct39_02_categoria_laticinios.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T22:52:16.816587" elapsed="0.232804"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:52:16.545997" elapsed="0.503609"/>
+</kw>
+<kw name="Clicar em editar na categoria Laticinios" owner="ct39_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:17.054393" level="INFO">Clicking element 'xpath://table[contains(@class, 'tabela')]//tr[td][td[3][normalize-space()='Laticínios']]//a[normalize-space()='Editar']'.</msg>
+<arg>${LINK_EDITAR_CATEGORIA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:52:17.053868" elapsed="0.140530"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${TITULO_ALTERAR_CATEGORIA}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T22:52:17.194752" elapsed="0.016007"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_NOME_CATEGORIA}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T22:52:17.210971" elapsed="0.021919"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Textfield Value Should Be" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:17.258082" level="INFO">Content of text field 'id:nome_categoria' is 'Laticínios'.</msg>
+<arg>${CAMPO_NOME_CATEGORIA}</arg>
+<arg>${NOME_CATEGORIA_ORIGINAL}</arg>
+<doc>Verifies text field ``locator`` has exactly text ``expected``.</doc>
+<status status="PASS" start="2026-10-23T22:52:17.234524" elapsed="0.023676"/>
+</kw>
+<arg>${TIMEOUT}</arg>
+<arg>500ms</arg>
+<arg>Textfield Value Should Be</arg>
+<arg>${CAMPO_NOME_CATEGORIA}</arg>
+<arg>${NOME_CATEGORIA_ORIGINAL}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2026-10-23T22:52:17.233638" elapsed="0.024687"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:17.390625" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct39_03_editar_categoria.png"&gt;&lt;img src="ct39_03_editar_categoria.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT39${/}ct39_03_editar_categoria.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T22:52:17.258610" elapsed="0.132193"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:52:17.053090" elapsed="0.337921"/>
+</kw>
+<kw name="Alterar o nome da categoria para Frios" owner="ct39_resources">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${CAMPO_NOME_CATEGORIA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:52:17.393943" elapsed="0.029099"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:17.424321" level="INFO">Typing text 'Frios' into text field 'id:nome_categoria'.</msg>
+<arg>${CAMPO_NOME_CATEGORIA}</arg>
+<arg>${NOME_CATEGORIA_ALTERADO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:52:17.423714" elapsed="0.073841"/>
+</kw>
+<kw name="Textfield Value Should Be" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:17.518495" level="INFO">Content of text field 'id:nome_categoria' is 'Frios'.</msg>
+<arg>${CAMPO_NOME_CATEGORIA}</arg>
+<arg>${NOME_CATEGORIA_ALTERADO}</arg>
+<doc>Verifies text field ``locator`` has exactly text ``expected``.</doc>
+<status status="PASS" start="2026-10-23T22:52:17.497805" elapsed="0.020806"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:17.693441" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct39_04_nome_alterado.png"&gt;&lt;img src="ct39_04_nome_alterado.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT39${/}ct39_04_nome_alterado.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T22:52:17.518889" elapsed="0.174752"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:52:17.393465" elapsed="0.300415"/>
+</kw>
+<kw name="Clicar em alterar" owner="ct39_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:17.701815" level="INFO">Clicking element 'id:alterarcategoria'.</msg>
+<arg>${BOTAO_ALTERAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:52:17.699590" elapsed="0.061267"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:52:17.698911" elapsed="0.062197"/>
+</kw>
+<kw name="O sistema confirma a alteracao e atualiza a categoria na lista" owner="ct39_resources">
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>id:error</arg>
+<arg>${MENSAGEM_SUCESSO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2026-10-23T22:52:17.763032" elapsed="0.029641"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:17.964896" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct39_05_sucesso.png"&gt;&lt;img src="ct39_05_sucesso.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT39${/}ct39_05_sucesso.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T22:52:17.792946" elapsed="0.172148"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${TITULO_CATEGORIAS}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T22:52:17.965464" elapsed="0.885860"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CATEGORIA_ALTERADA_LISTA}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T22:52:18.852470" elapsed="0.024280"/>
+</kw>
+<kw name="Page Should Not Contain Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:18.891114" level="INFO">Current page does not contain element 'xpath://table[contains(@class, 'tabela')]//tr[td][td[3][normalize-space()='Laticínios']]'.</msg>
+<arg>${CATEGORIA_ORIGINAL_LISTA}</arg>
+<doc>Verifies that element ``locator`` is not found on the current page.</doc>
+<status status="PASS" start="2026-10-23T22:52:18.877013" elapsed="0.014214"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:19.049689" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct39_06_categoria_frios.png"&gt;&lt;img src="ct39_06_categoria_frios.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT39${/}ct39_06_categoria_frios.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T22:52:18.891455" elapsed="0.158416"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:52:17.762218" elapsed="1.287928"/>
+</kw>
+<kw name="Fechar o navegador" owner="ct39_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:52:19.180353" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct39_06_fim.png"&gt;&lt;img src="ct39_06_fim.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT39${/}ct39_06_fim.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T22:52:19.059006" elapsed="0.121547"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-23T22:52:19.180891" elapsed="2.506687"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:52:19.058112" elapsed="2.629862"/>
+</kw>
+<doc>Verifica a confirmação de sucesso e se a listagem exibe "Frios" no lugar de "Laticínios".</doc>
+<tag>alteracao</tag>
+<tag>caixa_preta</tag>
+<tag>categorias</tag>
+<tag>ct39</tag>
+<tag>nome</tag>
+<status status="PASS" start="2026-10-23T22:52:12.899778" elapsed="8.788884"/>
+</test>
+<doc>CT39 - Alterar o nome de uma categoria já cadastrada.
+Passo a passo:
+1- Com um perfil logado e a categoria "Laticínios" cadastrada, acessar "Categorias";
+2- Clicar em "Editar" na categoria "Laticínios";
+3- Alterar o campo "Nome" para "Frios";
+4- Clicar em "Alterar".</doc>
+<status status="PASS" start="2026-10-23T22:52:12.276369" elapsed="9.415350"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">alteracao</stat>
+<stat pass="1" fail="0" skip="0">caixa_preta</stat>
+<stat pass="1" fail="0" skip="0">categorias</stat>
+<stat pass="1" fail="0" skip="0">ct39</stat>
+<stat pass="1" fail="0" skip="0">nome</stat>
+</tag>
+<suite>
+<stat name="Ct39 Teste" id="s1" pass="1" fail="0" skip="0">Ct39 Teste</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

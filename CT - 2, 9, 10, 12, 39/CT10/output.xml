@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.13.3 on win32)" generated="2026-10-23T19:33:52.622478" rpa="false" schemaversion="5">
+<suite id="s1" name="Ct10 Teste" source="C:\Users\User\OneDrive - Grupo Marista\2026_2\Verificação e Validação\PjBl 3\CT9-16\CT10\ct10_teste.robot">
+<test id="s1-t1" name="CT10 - Exibir todos os cards do menu principal em mobile" line="13">
+<kw name="Abrir o navegador e fazer login" owner="ct10_resources" type="SETUP">
+<kw name="Abrir o navegador" owner="ct10_resources">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:53.216380" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/mykeeper/usuario_login'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-23T19:33:53.216108" elapsed="1.727274"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-23T19:33:54.943757" elapsed="0.050523"/>
+</kw>
+<status status="PASS" start="2026-10-23T19:33:53.215199" elapsed="1.779440"/>
+</kw>
+<kw name="Realizar login" owner="ct10_resources">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T19:33:54.996060" elapsed="0.044206"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:55.041168" level="INFO">Typing text 'user@user.com' into text field 'id:email'.</msg>
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:55.040642" elapsed="0.208372"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:55.249943" level="INFO">Typing password into text field 'id:senha'.</msg>
+<msg time="2026-10-23T19:33:55.467258" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_LOGIN_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:55.249382" elapsed="0.291352"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:55.541491" level="INFO">Clicking element 'css:button[type="submit"]'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:55.541088" elapsed="0.079067"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ELEMENTO_POS_LOGIN}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T19:33:55.620602" elapsed="1.434643"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TITULO_MENU_PRINCIPAL}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.055857" elapsed="0.030423"/>
+</kw>
+<arg>${USUARIO_VALIDO}</arg>
+<arg>${SENHA_VALIDA}</arg>
+<status status="PASS" start="2026-10-23T19:33:54.995043" elapsed="2.091375"/>
+</kw>
+<status status="PASS" start="2026-10-23T19:33:53.214790" elapsed="3.871725"/>
+</kw>
+<kw name="Ativar simulacao mobile" owner="ct10_resources">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2026-10-23T19:33:57.087829" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x00000182E2FD6A50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.087370" elapsed="0.000515"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-23T19:33:57.088643" level="INFO">${driver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="a6df525411ec3c5d7e603d52a8ac5fa0")&gt;</msg>
+<var>${driver}</var>
+<arg>$selenium.driver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.088102" elapsed="0.000588"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-23T19:33:57.089379" level="INFO">${metricas} = {'width': 375, 'height': 667, 'deviceScaleFactor': 1, 'mobile': True}</msg>
+<var>${metricas}</var>
+<arg>{"width": ${LARGURA_MOBILE}, "height": ${ALTURA_MOBILE}, "deviceScaleFactor": 1, "mobile": True}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.088901" elapsed="0.000523"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${driver}</arg>
+<arg>execute_cdp_cmd</arg>
+<arg>Emulation.setDeviceMetricsOverride</arg>
+<arg>${metricas}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.089592" elapsed="0.046366"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.136606" level="INFO">Executing JavaScript:
+return window.innerWidth
+Without any arguments.</msg>
+<msg time="2026-10-23T19:33:57.143131" level="INFO">${largura} = 375</msg>
+<var>${largura}</var>
+<arg>return window.innerWidth</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.136388" elapsed="0.006803"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.145677" level="INFO">Executing JavaScript:
+return window.innerHeight
+Without any arguments.</msg>
+<msg time="2026-10-23T19:33:57.153872" level="INFO">${altura} = 667</msg>
+<var>${altura}</var>
+<arg>return window.innerHeight</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.143462" elapsed="0.010471"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-10-23T19:33:57.154546" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${largura}</arg>
+<arg>${LARGURA_MOBILE}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.154142" elapsed="0.000487"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-10-23T19:33:57.155108" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${altura}</arg>
+<arg>${ALTURA_MOBILE}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.154793" elapsed="0.000393"/>
+</kw>
+<status status="PASS" start="2026-10-23T19:33:57.086957" elapsed="0.068322"/>
+</kw>
+<kw name="Conferir todos os cards do menu" owner="ct10_resources">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.167198" level="INFO">${quantidade} = 6</msg>
+<var>${quantidade}</var>
+<arg>${CARD_HOME}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.156368" elapsed="0.010883"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-10-23T19:33:57.167786" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${quantidade}</arg>
+<arg>6</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.167451" elapsed="0.000406"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-23T19:33:57.168674" level="INFO">${card} = xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='Meus Produtos']]</msg>
+<var>${card}</var>
+<arg>xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='${nome}']]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.168328" elapsed="0.000389"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${card}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.169047" elapsed="0.017126"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.209558" level="INFO">${titulo} = Meus Produtos</msg>
+<var>${titulo}</var>
+<arg>xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='${nome}']]//h3</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.186486" elapsed="0.023135"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${titulo}</arg>
+<arg>${nome}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.209825" elapsed="0.000427"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.219647" level="INFO">${elemento} = &lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.72")&gt;</msg>
+<var>${elemento}</var>
+<arg>${card}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.211476" elapsed="0.008236"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.220166" level="INFO">Executing JavaScript:
+arguments[0].scrollIntoView({block: 'center'});
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.72")&gt;'</msg>
+<arg>arguments[0].scrollIntoView({block: 'center'});</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.219924" elapsed="0.005059"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.378492" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct10_scroll_Meus%20Produtos.png"&gt;&lt;img src="ct10_scroll_Meus%20Produtos.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT10${/}ct10_scroll_${nome}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.225227" elapsed="0.153553"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.379966" level="INFO">Executing JavaScript:
+return (function(card) { const rect = card.getBoundingClientRect(); return rect.top &gt;= 0 &amp;&amp; rect.bottom &lt;= window.innerHeight + 1 &amp;&amp; rect.left &gt;= 0 &amp;&amp; rect.right &lt;= window.innerWidth + 1; })(arguments[0])
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.72")&gt;'</msg>
+<msg time="2026-10-23T19:33:57.392380" level="INFO">${completo} = True</msg>
+<var>${completo}</var>
+<arg>return (function(card) { const rect = card.getBoundingClientRect(); return rect.top &gt;= 0 &amp;&amp; rect.bottom &lt;= window.innerHeight + 1 &amp;&amp; rect.left &gt;= 0 &amp;&amp; rect.right &lt;= window.innerWidth + 1; })(arguments[0])</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.379390" elapsed="0.013047"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${completo}</arg>
+<arg>O card "${nome}" não está totalmente visível na tela mobile.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.392704" elapsed="0.000449"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.403748" level="INFO">${barra} = &lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.40")&gt;</msg>
+<var>${barra}</var>
+<arg>${BARRA_NAVEGACAO}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.393319" elapsed="0.010488"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.404362" level="INFO">Executing JavaScript:
+return (function(card, bar) { const cardRect = card.getBoundingClientRect(), barRect = bar.getBoundingClientRect(); if (getComputedStyle(bar).position !== 'fixed') return true; return cardRect.right &lt;= barRect.left || barRect.right &lt;= cardRect.left || cardRect.bottom &lt;= barRect.top || barRect.bottom &lt;= cardRect.top; })(arguments[0], arguments[1])
+By using arguments:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.72")&gt;' and '&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.40")&gt;'</msg>
+<msg time="2026-10-23T19:33:57.411428" level="INFO">${sem_sobreposicao_barra} = True</msg>
+<var>${sem_sobreposicao_barra}</var>
+<arg>return (function(card, bar) { const cardRect = card.getBoundingClientRect(), barRect = bar.getBoundingClientRect(); if (getComputedStyle(bar).position !== 'fixed') return true; return cardRect.right &lt;= barRect.left || barRect.right &lt;= cardRect.left || cardRect.bottom &lt;= barRect.top || barRect.bottom &lt;= cardRect.top; })(arguments[0], arguments[1])</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<arg>${barra}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.404076" elapsed="0.007549"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${sem_sobreposicao_barra}</arg>
+<arg>O card "${nome}" está sobreposto pela barra de navegação mobile.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.411861" elapsed="0.000426"/>
+</kw>
+<var name="${nome}">Meus Produtos</var>
+<status status="PASS" start="2026-10-23T19:33:57.168184" elapsed="0.244173"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-23T19:33:57.413057" level="INFO">${card} = xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='Estoque']]</msg>
+<var>${card}</var>
+<arg>xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='${nome}']]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.412701" elapsed="0.000395"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${card}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.413234" elapsed="0.015654"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.443529" level="INFO">${titulo} = Estoque</msg>
+<var>${titulo}</var>
+<arg>xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='${nome}']]//h3</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.429111" elapsed="0.014535"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${titulo}</arg>
+<arg>${nome}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.444011" elapsed="0.000844"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.453100" level="INFO">${elemento} = &lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.73")&gt;</msg>
+<var>${elemento}</var>
+<arg>${card}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.445457" elapsed="0.007703"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.453645" level="INFO">Executing JavaScript:
+arguments[0].scrollIntoView({block: 'center'});
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.73")&gt;'</msg>
+<arg>arguments[0].scrollIntoView({block: 'center'});</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.453413" elapsed="0.006134"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.574997" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct10_scroll_Estoque.png"&gt;&lt;img src="ct10_scroll_Estoque.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT10${/}ct10_scroll_${nome}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.459997" elapsed="0.115239"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.576331" level="INFO">Executing JavaScript:
+return (function(card) { const rect = card.getBoundingClientRect(); return rect.top &gt;= 0 &amp;&amp; rect.bottom &lt;= window.innerHeight + 1 &amp;&amp; rect.left &gt;= 0 &amp;&amp; rect.right &lt;= window.innerWidth + 1; })(arguments[0])
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.73")&gt;'</msg>
+<msg time="2026-10-23T19:33:57.589066" level="INFO">${completo} = True</msg>
+<var>${completo}</var>
+<arg>return (function(card) { const rect = card.getBoundingClientRect(); return rect.top &gt;= 0 &amp;&amp; rect.bottom &lt;= window.innerHeight + 1 &amp;&amp; rect.left &gt;= 0 &amp;&amp; rect.right &lt;= window.innerWidth + 1; })(arguments[0])</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.575791" elapsed="0.013346"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${completo}</arg>
+<arg>O card "${nome}" não está totalmente visível na tela mobile.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.589422" elapsed="0.000571"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.599872" level="INFO">${barra} = &lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.40")&gt;</msg>
+<var>${barra}</var>
+<arg>${BARRA_NAVEGACAO}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.590197" elapsed="0.009759"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.600670" level="INFO">Executing JavaScript:
+return (function(card, bar) { const cardRect = card.getBoundingClientRect(), barRect = bar.getBoundingClientRect(); if (getComputedStyle(bar).position !== 'fixed') return true; return cardRect.right &lt;= barRect.left || barRect.right &lt;= cardRect.left || cardRect.bottom &lt;= barRect.top || barRect.bottom &lt;= cardRect.top; })(arguments[0], arguments[1])
+By using arguments:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.73")&gt;' and '&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.40")&gt;'</msg>
+<msg time="2026-10-23T19:33:57.606620" level="INFO">${sem_sobreposicao_barra} = True</msg>
+<var>${sem_sobreposicao_barra}</var>
+<arg>return (function(card, bar) { const cardRect = card.getBoundingClientRect(), barRect = bar.getBoundingClientRect(); if (getComputedStyle(bar).position !== 'fixed') return true; return cardRect.right &lt;= barRect.left || barRect.right &lt;= cardRect.left || cardRect.bottom &lt;= barRect.top || barRect.bottom &lt;= cardRect.top; })(arguments[0], arguments[1])</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<arg>${barra}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.600296" elapsed="0.006374"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${sem_sobreposicao_barra}</arg>
+<arg>O card "${nome}" está sobreposto pela barra de navegação mobile.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.606882" elapsed="0.000400"/>
+</kw>
+<var name="${nome}">Estoque</var>
+<status status="PASS" start="2026-10-23T19:33:57.412568" elapsed="0.194783"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-23T19:33:57.608014" level="INFO">${card} = xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='Lista de Compras']]</msg>
+<var>${card}</var>
+<arg>xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='${nome}']]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.607671" elapsed="0.000380"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${card}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.608187" elapsed="0.015903"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.640706" level="INFO">${titulo} = Lista de Compras</msg>
+<var>${titulo}</var>
+<arg>xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='${nome}']]//h3</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.624285" elapsed="0.016478"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${titulo}</arg>
+<arg>${nome}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.640981" elapsed="0.000455"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.649244" level="INFO">${elemento} = &lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.74")&gt;</msg>
+<var>${elemento}</var>
+<arg>${card}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.641599" elapsed="0.007712"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.649799" level="INFO">Executing JavaScript:
+arguments[0].scrollIntoView({block: 'center'});
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.74")&gt;'</msg>
+<arg>arguments[0].scrollIntoView({block: 'center'});</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.649566" elapsed="0.005335"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.749704" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct10_scroll_Lista%20de%20Compras.png"&gt;&lt;img src="ct10_scroll_Lista%20de%20Compras.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT10${/}ct10_scroll_${nome}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.655199" elapsed="0.094776"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.751490" level="INFO">Executing JavaScript:
+return (function(card) { const rect = card.getBoundingClientRect(); return rect.top &gt;= 0 &amp;&amp; rect.bottom &lt;= window.innerHeight + 1 &amp;&amp; rect.left &gt;= 0 &amp;&amp; rect.right &lt;= window.innerWidth + 1; })(arguments[0])
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.74")&gt;'</msg>
+<msg time="2026-10-23T19:33:57.766365" level="INFO">${completo} = True</msg>
+<var>${completo}</var>
+<arg>return (function(card) { const rect = card.getBoundingClientRect(); return rect.top &gt;= 0 &amp;&amp; rect.bottom &lt;= window.innerHeight + 1 &amp;&amp; rect.left &gt;= 0 &amp;&amp; rect.right &lt;= window.innerWidth + 1; })(arguments[0])</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.750836" elapsed="0.015586"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${completo}</arg>
+<arg>O card "${nome}" não está totalmente visível na tela mobile.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.766662" elapsed="0.000444"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.773278" level="INFO">${barra} = &lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.40")&gt;</msg>
+<var>${barra}</var>
+<arg>${BARRA_NAVEGACAO}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.767276" elapsed="0.006058"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.773804" level="INFO">Executing JavaScript:
+return (function(card, bar) { const cardRect = card.getBoundingClientRect(), barRect = bar.getBoundingClientRect(); if (getComputedStyle(bar).position !== 'fixed') return true; return cardRect.right &lt;= barRect.left || barRect.right &lt;= cardRect.left || cardRect.bottom &lt;= barRect.top || barRect.bottom &lt;= cardRect.top; })(arguments[0], arguments[1])
+By using arguments:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.74")&gt;' and '&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.40")&gt;'</msg>
+<msg time="2026-10-23T19:33:57.779163" level="INFO">${sem_sobreposicao_barra} = True</msg>
+<var>${sem_sobreposicao_barra}</var>
+<arg>return (function(card, bar) { const cardRect = card.getBoundingClientRect(), barRect = bar.getBoundingClientRect(); if (getComputedStyle(bar).position !== 'fixed') return true; return cardRect.right &lt;= barRect.left || barRect.right &lt;= cardRect.left || cardRect.bottom &lt;= barRect.top || barRect.bottom &lt;= cardRect.top; })(arguments[0], arguments[1])</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<arg>${barra}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.773553" elapsed="0.005667"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${sem_sobreposicao_barra}</arg>
+<arg>O card "${nome}" está sobreposto pela barra de navegação mobile.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.779447" elapsed="0.000436"/>
+</kw>
+<var name="${nome}">Lista de Compras</var>
+<status status="PASS" start="2026-10-23T19:33:57.607547" elapsed="0.172411"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-23T19:33:57.780638" level="INFO">${card} = xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='Receitas']]</msg>
+<var>${card}</var>
+<arg>xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='${nome}']]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.780279" elapsed="0.000403"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${card}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.780824" elapsed="0.015976"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.812251" level="INFO">${titulo} = Receitas</msg>
+<var>${titulo}</var>
+<arg>xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='${nome}']]//h3</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.797013" elapsed="0.015289"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${titulo}</arg>
+<arg>${nome}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.812490" elapsed="0.000399"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.818380" level="INFO">${elemento} = &lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.75")&gt;</msg>
+<var>${elemento}</var>
+<arg>${card}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.813027" elapsed="0.005407"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.818866" level="INFO">Executing JavaScript:
+arguments[0].scrollIntoView({block: 'center'});
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.75")&gt;'</msg>
+<arg>arguments[0].scrollIntoView({block: 'center'});</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.818650" elapsed="0.004851"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.920964" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct10_scroll_Receitas.png"&gt;&lt;img src="ct10_scroll_Receitas.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT10${/}ct10_scroll_${nome}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.823898" elapsed="0.097268"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.922052" level="INFO">Executing JavaScript:
+return (function(card) { const rect = card.getBoundingClientRect(); return rect.top &gt;= 0 &amp;&amp; rect.bottom &lt;= window.innerHeight + 1 &amp;&amp; rect.left &gt;= 0 &amp;&amp; rect.right &lt;= window.innerWidth + 1; })(arguments[0])
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.75")&gt;'</msg>
+<msg time="2026-10-23T19:33:57.930394" level="INFO">${completo} = True</msg>
+<var>${completo}</var>
+<arg>return (function(card) { const rect = card.getBoundingClientRect(); return rect.top &gt;= 0 &amp;&amp; rect.bottom &lt;= window.innerHeight + 1 &amp;&amp; rect.left &gt;= 0 &amp;&amp; rect.right &lt;= window.innerWidth + 1; })(arguments[0])</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.921629" elapsed="0.008817"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${completo}</arg>
+<arg>O card "${nome}" não está totalmente visível na tela mobile.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.930659" elapsed="0.000439"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.937432" level="INFO">${barra} = &lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.40")&gt;</msg>
+<var>${barra}</var>
+<arg>${BARRA_NAVEGACAO}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.931238" elapsed="0.006248"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.937941" level="INFO">Executing JavaScript:
+return (function(card, bar) { const cardRect = card.getBoundingClientRect(), barRect = bar.getBoundingClientRect(); if (getComputedStyle(bar).position !== 'fixed') return true; return cardRect.right &lt;= barRect.left || barRect.right &lt;= cardRect.left || cardRect.bottom &lt;= barRect.top || barRect.bottom &lt;= cardRect.top; })(arguments[0], arguments[1])
+By using arguments:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.75")&gt;' and '&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.40")&gt;'</msg>
+<msg time="2026-10-23T19:33:57.942214" level="INFO">${sem_sobreposicao_barra} = True</msg>
+<var>${sem_sobreposicao_barra}</var>
+<arg>return (function(card, bar) { const cardRect = card.getBoundingClientRect(), barRect = bar.getBoundingClientRect(); if (getComputedStyle(bar).position !== 'fixed') return true; return cardRect.right &lt;= barRect.left || barRect.right &lt;= cardRect.left || cardRect.bottom &lt;= barRect.top || barRect.bottom &lt;= cardRect.top; })(arguments[0], arguments[1])</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<arg>${barra}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.937693" elapsed="0.004581"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${sem_sobreposicao_barra}</arg>
+<arg>O card "${nome}" está sobreposto pela barra de navegação mobile.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.942492" elapsed="0.000413"/>
+</kw>
+<var name="${nome}">Receitas</var>
+<status status="PASS" start="2026-10-23T19:33:57.780156" elapsed="0.162819"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-23T19:33:57.944196" level="INFO">${card} = xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='Categorias']]</msg>
+<var>${card}</var>
+<arg>xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='${nome}']]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.943623" elapsed="0.000623"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${card}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.944439" elapsed="0.015156"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.973054" level="INFO">${titulo} = Categorias</msg>
+<var>${titulo}</var>
+<arg>xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='${nome}']]//h3</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.959805" elapsed="0.013303"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${titulo}</arg>
+<arg>${nome}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.973299" elapsed="0.000428"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.986244" level="INFO">${elemento} = &lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.76")&gt;</msg>
+<var>${elemento}</var>
+<arg>${card}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.973866" elapsed="0.012486"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:57.987204" level="INFO">Executing JavaScript:
+arguments[0].scrollIntoView({block: 'center'});
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.76")&gt;'</msg>
+<arg>arguments[0].scrollIntoView({block: 'center'});</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.986783" elapsed="0.008508"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:58.078729" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct10_scroll_Categorias.png"&gt;&lt;img src="ct10_scroll_Categorias.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT10${/}ct10_scroll_${nome}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T19:33:57.995602" elapsed="0.083333"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:58.079967" level="INFO">Executing JavaScript:
+return (function(card) { const rect = card.getBoundingClientRect(); return rect.top &gt;= 0 &amp;&amp; rect.bottom &lt;= window.innerHeight + 1 &amp;&amp; rect.left &gt;= 0 &amp;&amp; rect.right &lt;= window.innerWidth + 1; })(arguments[0])
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.76")&gt;'</msg>
+<msg time="2026-10-23T19:33:58.086702" level="INFO">${completo} = True</msg>
+<var>${completo}</var>
+<arg>return (function(card) { const rect = card.getBoundingClientRect(); return rect.top &gt;= 0 &amp;&amp; rect.bottom &lt;= window.innerHeight + 1 &amp;&amp; rect.left &gt;= 0 &amp;&amp; rect.right &lt;= window.innerWidth + 1; })(arguments[0])</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.079520" elapsed="0.007239"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${completo}</arg>
+<arg>O card "${nome}" não está totalmente visível na tela mobile.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.087065" elapsed="0.000485"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:58.096143" level="INFO">${barra} = &lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.40")&gt;</msg>
+<var>${barra}</var>
+<arg>${BARRA_NAVEGACAO}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.087717" elapsed="0.008512"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:58.096875" level="INFO">Executing JavaScript:
+return (function(card, bar) { const cardRect = card.getBoundingClientRect(), barRect = bar.getBoundingClientRect(); if (getComputedStyle(bar).position !== 'fixed') return true; return cardRect.right &lt;= barRect.left || barRect.right &lt;= cardRect.left || cardRect.bottom &lt;= barRect.top || barRect.bottom &lt;= cardRect.top; })(arguments[0], arguments[1])
+By using arguments:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.76")&gt;' and '&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.40")&gt;'</msg>
+<msg time="2026-10-23T19:33:58.102621" level="INFO">${sem_sobreposicao_barra} = True</msg>
+<var>${sem_sobreposicao_barra}</var>
+<arg>return (function(card, bar) { const cardRect = card.getBoundingClientRect(), barRect = bar.getBoundingClientRect(); if (getComputedStyle(bar).position !== 'fixed') return true; return cardRect.right &lt;= barRect.left || barRect.right &lt;= cardRect.left || cardRect.bottom &lt;= barRect.top || barRect.bottom &lt;= cardRect.top; })(arguments[0], arguments[1])</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<arg>${barra}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.096574" elapsed="0.006098"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${sem_sobreposicao_barra}</arg>
+<arg>O card "${nome}" está sobreposto pela barra de navegação mobile.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.102893" elapsed="0.000407"/>
+</kw>
+<var name="${nome}">Categorias</var>
+<status status="PASS" start="2026-10-23T19:33:57.943248" elapsed="0.160122"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-23T19:33:58.104017" level="INFO">${card} = xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='Suporte']]</msg>
+<var>${card}</var>
+<arg>xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='${nome}']]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.103673" elapsed="0.000382"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${card}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.104189" elapsed="0.015700"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:58.136227" level="INFO">${titulo} = Suporte</msg>
+<var>${titulo}</var>
+<arg>xpath://div[contains(@class, 'home-card') and .//h3[normalize-space()='${nome}']]//h3</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.120094" elapsed="0.016191"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${titulo}</arg>
+<arg>${nome}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.136515" elapsed="0.000463"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:58.143142" level="INFO">${elemento} = &lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.77")&gt;</msg>
+<var>${elemento}</var>
+<arg>${card}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.137139" elapsed="0.006066"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:58.144234" level="INFO">Executing JavaScript:
+arguments[0].scrollIntoView({block: 'center'});
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.77")&gt;'</msg>
+<arg>arguments[0].scrollIntoView({block: 'center'});</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.143783" elapsed="0.007634"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:58.232304" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct10_scroll_Suporte.png"&gt;&lt;img src="ct10_scroll_Suporte.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT10${/}ct10_scroll_${nome}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.151867" elapsed="0.080655"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:58.233832" level="INFO">Executing JavaScript:
+return (function(card) { const rect = card.getBoundingClientRect(); return rect.top &gt;= 0 &amp;&amp; rect.bottom &lt;= window.innerHeight + 1 &amp;&amp; rect.left &gt;= 0 &amp;&amp; rect.right &lt;= window.innerWidth + 1; })(arguments[0])
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.77")&gt;'</msg>
+<msg time="2026-10-23T19:33:58.242581" level="INFO">${completo} = True</msg>
+<var>${completo}</var>
+<arg>return (function(card) { const rect = card.getBoundingClientRect(); return rect.top &gt;= 0 &amp;&amp; rect.bottom &lt;= window.innerHeight + 1 &amp;&amp; rect.left &gt;= 0 &amp;&amp; rect.right &lt;= window.innerWidth + 1; })(arguments[0])</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.232983" elapsed="0.009649"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${completo}</arg>
+<arg>O card "${nome}" não está totalmente visível na tela mobile.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.242838" elapsed="0.000439"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:58.251321" level="INFO">${barra} = &lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.40")&gt;</msg>
+<var>${barra}</var>
+<arg>${BARRA_NAVEGACAO}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.243679" elapsed="0.007696"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:58.251824" level="INFO">Executing JavaScript:
+return (function(card, bar) { const cardRect = card.getBoundingClientRect(), barRect = bar.getBoundingClientRect(); if (getComputedStyle(bar).position !== 'fixed') return true; return cardRect.right &lt;= barRect.left || barRect.right &lt;= cardRect.left || cardRect.bottom &lt;= barRect.top || barRect.bottom &lt;= cardRect.top; })(arguments[0], arguments[1])
+By using arguments:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.77")&gt;' and '&lt;selenium.webdriver.remote.webelement.WebElement (session="a6df525411ec3c5d7e603d52a8ac5fa0", element="f.D6D1A4E18AADBB964C977605644A97A6.d.7DD8DE4001A9ACAF1C08BCE2B46EAEE5.e.40")&gt;'</msg>
+<msg time="2026-10-23T19:33:58.257187" level="INFO">${sem_sobreposicao_barra} = False</msg>
+<var>${sem_sobreposicao_barra}</var>
+<arg>return (function(card, bar) { const cardRect = card.getBoundingClientRect(), barRect = bar.getBoundingClientRect(); if (getComputedStyle(bar).position !== 'fixed') return true; return cardRect.right &lt;= barRect.left || barRect.right &lt;= cardRect.left || cardRect.bottom &lt;= barRect.top || barRect.bottom &lt;= cardRect.top; })(arguments[0], arguments[1])</arg>
+<arg>ARGUMENTS</arg>
+<arg>${elemento}</arg>
+<arg>${barra}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.251581" elapsed="0.005664"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2026-10-23T19:33:58.257969" level="FAIL">O card "Suporte" está sobreposto pela barra de navegação mobile.</msg>
+<arg>${sem_sobreposicao_barra}</arg>
+<arg>O card "${nome}" está sobreposto pela barra de navegação mobile.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2026-10-23T19:33:58.257467" elapsed="0.000687">O card "Suporte" está sobreposto pela barra de navegação mobile.</status>
+</kw>
+<var name="${nome}">Suporte</var>
+<status status="FAIL" start="2026-10-23T19:33:58.103544" elapsed="0.154726">O card "Suporte" está sobreposto pela barra de navegação mobile.</status>
+</iter>
+<var>${nome}</var>
+<value>@{NOMES_CARDS}</value>
+<status status="FAIL" start="2026-10-23T19:33:57.167950" elapsed="1.090421">O card "Suporte" está sobreposto pela barra de navegação mobile.</status>
+</for>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<var>${sem_sobreposicao}</var>
+<arg>return [...document.querySelectorAll('.home-card')].every((a, i, cards) =&gt; cards.slice(i + 1).every(b =&gt; { const x = a.getBoundingClientRect(), y = b.getBoundingClientRect(); return x.right &lt;= y.left || y.right &lt;= x.left || x.bottom &lt;= y.top || y.bottom &lt;= x.top; }))</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-10-23T19:33:58.258596" elapsed="0.000038"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${sem_sobreposicao}</arg>
+<arg>Os cards do menu principal estão sobrepostos.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2026-10-23T19:33:58.258778" elapsed="0.000034"/>
+</kw>
+<status status="FAIL" start="2026-10-23T19:33:57.155877" elapsed="1.103068">O card "Suporte" está sobreposto pela barra de navegação mobile.</status>
+</kw>
+<kw name="Fechar o navegador" owner="ct10_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:33:58.341955" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.260529" elapsed="0.081619"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-23T19:33:58.342465" elapsed="2.477385"/>
+</kw>
+<status status="PASS" start="2026-10-23T19:33:58.259543" elapsed="2.560723"/>
+</kw>
+<doc>Verifica a abertura do menu principal, a resolução mobile de 375x667px e a exibição integral dos seis cards, sem sobreposição entre si ou pela barra de navegação fixa.</doc>
+<tag>caixa_preta</tag>
+<tag>ct10</tag>
+<tag>menu_principal</tag>
+<tag>mobile</tag>
+<tag>responsividade</tag>
+<status status="FAIL" start="2026-10-23T19:33:53.213560" elapsed="7.607411">O card "Suporte" está sobreposto pela barra de navegação mobile.</status>
+</test>
+<doc>CT10 - Verifica se os cards do menu principal cabem na tela mobile sem sobreposição.
+Passo a passo:
+1- Acessar o menu principal do MyKeeper com usuário logado;
+2- Ativar a simulação mobile em 375x667px;
+3- Rolar a página e conferir os cards Meus Produtos, Estoque, Lista de Compras, Receitas, Categorias e Suporte, inclusive se não ficam atrás da barra fixa.</doc>
+<status status="FAIL" start="2026-10-23T19:33:52.625515" elapsed="8.198647"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">caixa_preta</stat>
+<stat pass="0" fail="1" skip="0">ct10</stat>
+<stat pass="0" fail="1" skip="0">menu_principal</stat>
+<stat pass="0" fail="1" skip="0">mobile</stat>
+<stat pass="0" fail="1" skip="0">responsividade</stat>
+</tag>
+<suite>
+<stat name="Ct10 Teste" id="s1" pass="0" fail="1" skip="0">Ct10 Teste</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

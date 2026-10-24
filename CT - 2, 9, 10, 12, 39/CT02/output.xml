@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.13.3 on win32)" generated="2026-10-23T23:20:45.745467" rpa="false" schemaversion="5">
+<suite id="s1" name="Ct02 Teste" source="C:\Users\User\OneDrive - Grupo Marista\2026_2\Verificação e Validação\PjBl 3\CT9-16\CT02\ct02_teste.robot">
+<test id="s1-t1" name="CT02 - Impedir cadastro com e-mail inválido" line="15">
+<kw name="Abrir o navegador e acessar cadastro" owner="ct02_resources" type="SETUP">
+<kw name="Abrir o navegador" owner="ct02_resources">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:46.342312" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/mykeeper'.</msg>
+<arg>${URL_BASE}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-23T23:20:46.342027" elapsed="1.635379"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-23T23:20:47.977842" elapsed="0.030143"/>
+</kw>
+<status status="PASS" start="2026-10-23T23:20:46.340653" elapsed="1.668513"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_COMECAR}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T23:20:48.009765" elapsed="0.050383"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:48.246573" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct02_01_pagina_inicial.png"&gt;&lt;img src="ct02_01_pagina_inicial.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT02${/}ct02_01_pagina_inicial.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T23:20:48.060613" elapsed="0.186186"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:48.247799" level="INFO">Clicking element 'id:startNowButton'.</msg>
+<arg>${BOTAO_COMECAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T23:20:48.247256" elapsed="0.284369"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_CRIAR_CONTA}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T23:20:48.531987" elapsed="0.019040"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:48.705671" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct02_02_login.png"&gt;&lt;img src="ct02_02_login.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT02${/}ct02_02_login.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T23:20:48.551367" elapsed="0.154501"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:48.706825" level="INFO">Clicking element 'id:createAccount'.</msg>
+<arg>${BOTAO_CRIAR_CONTA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T23:20:48.706329" elapsed="0.136270"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_NOME}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T23:20:48.843041" elapsed="0.034217"/>
+</kw>
+<kw name="Capturar pagina completa" owner="ct02_resources">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:48.878722" level="INFO">Executing JavaScript:
+window.scrollTo(0, 0); document.documentElement.style.zoom = '65%'
+Without any arguments.</msg>
+<arg>window.scrollTo(0, 0); document.documentElement.style.zoom = '65%'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T23:20:48.878432" elapsed="0.028817"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:49.022544" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct02_03_formulario_cadastro.png"&gt;&lt;img src="ct02_03_formulario_cadastro.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${arquivo}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T23:20:48.907703" elapsed="0.115053"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:49.023473" level="INFO">Executing JavaScript:
+document.documentElement.style.zoom = '100%'
+Without any arguments.</msg>
+<arg>document.documentElement.style.zoom = '100%'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.023163" elapsed="0.009690"/>
+</kw>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT02${/}ct02_03_formulario_cadastro.png</arg>
+<status status="PASS" start="2026-10-23T23:20:48.877675" elapsed="0.155313"/>
+</kw>
+<status status="PASS" start="2026-10-23T23:20:46.340190" elapsed="2.692893"/>
+</kw>
+<kw name="Preencher formulario com email invalido" owner="ct02_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:49.037175" level="INFO">Typing text 'Usuário Válido' into text field 'id:nome'.</msg>
+<arg>${CAMPO_NOME}</arg>
+<arg>${NOME_VALIDO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.035752" elapsed="0.109610"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:49.146258" level="INFO">Typing text 'usuario.invalido.com' into text field 'id:email'.</msg>
+<arg>${CAMPO_EMAIL}</arg>
+<arg>${EMAIL_INVALIDO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.145736" elapsed="0.113958"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:49.260589" level="INFO">Typing text '81280080' into text field 'id:cep'.</msg>
+<arg>${CAMPO_CEP}</arg>
+<arg>${CEP_VALIDO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.260066" elapsed="0.097057"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:49.358093" level="INFO">Typing password into text field 'id:senha'.</msg>
+<msg time="2026-10-23T23:20:49.386554" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>${SENHA_VALIDA}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.357522" elapsed="0.094538"/>
+</kw>
+<kw name="Textfield Value Should Be" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:49.478017" level="INFO">Content of text field 'id:nome' is 'Usuário Válido'.</msg>
+<arg>${CAMPO_NOME}</arg>
+<arg>${NOME_VALIDO}</arg>
+<doc>Verifies text field ``locator`` has exactly text ``expected``.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.452430" elapsed="0.025703"/>
+</kw>
+<kw name="Textfield Value Should Be" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:49.497830" level="INFO">Content of text field 'id:email' is 'usuario.invalido.com'.</msg>
+<arg>${CAMPO_EMAIL}</arg>
+<arg>${EMAIL_INVALIDO}</arg>
+<doc>Verifies text field ``locator`` has exactly text ``expected``.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.478322" elapsed="0.019610"/>
+</kw>
+<kw name="Textfield Value Should Be" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:49.520975" level="INFO">Content of text field 'id:cep' is '81280-080'.</msg>
+<arg>${CAMPO_CEP}</arg>
+<arg>${CEP_FORMATADO}</arg>
+<doc>Verifies text field ``locator`` has exactly text ``expected``.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.498130" elapsed="0.023132"/>
+</kw>
+<kw name="Textfield Value Should Be" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:49.542179" level="INFO">Content of text field 'id:senha' is 'Teste12345678*'.</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>${SENHA_VALIDA}</arg>
+<doc>Verifies text field ``locator`` has exactly text ``expected``.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.521479" elapsed="0.020849"/>
+</kw>
+<kw name="Capturar pagina completa" owner="ct02_resources">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:49.543574" level="INFO">Executing JavaScript:
+window.scrollTo(0, 0); document.documentElement.style.zoom = '65%'
+Without any arguments.</msg>
+<arg>window.scrollTo(0, 0); document.documentElement.style.zoom = '65%'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.543336" elapsed="0.004964"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:49.754246" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct02_04_dados_invalidos.png"&gt;&lt;img src="ct02_04_dados_invalidos.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${arquivo}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.548704" elapsed="0.205742"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:49.755227" level="INFO">Executing JavaScript:
+document.documentElement.style.zoom = '100%'
+Without any arguments.</msg>
+<arg>document.documentElement.style.zoom = '100%'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.754887" elapsed="0.006987"/>
+</kw>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT02${/}ct02_04_dados_invalidos.png</arg>
+<status status="PASS" start="2026-10-23T23:20:49.542667" elapsed="0.219341"/>
+</kw>
+<status status="PASS" start="2026-10-23T23:20:49.034824" elapsed="0.727278"/>
+</kw>
+<kw name="Clicar em cadastrar" owner="ct02_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:49.763215" level="INFO">Clicking element 'css:button[type="submit"]'.</msg>
+<arg>${BOTAO_CADASTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.762924" elapsed="0.067406"/>
+</kw>
+<status status="PASS" start="2026-10-23T23:20:49.762510" elapsed="0.068076"/>
+</kw>
+<kw name="Validar mensagem solicitando email valido" owner="ct02_resources">
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${CAMPO_ERRO_GERAL}</arg>
+<arg>${MENSAGEM_EMAIL_INVALIDO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.831944" elapsed="0.039508"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:49.886748" level="INFO">${mensagem} = ERRO! Digite um e-mail válido.</msg>
+<var>${mensagem}</var>
+<arg>${CAMPO_ERRO_GERAL}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.871851" elapsed="0.014964"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${mensagem}</arg>
+<arg>${MENSAGEM_EMAIL_INVALIDO}</arg>
+<arg>A mensagem de validação do e-mail está diferente da esperada.</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.887074" elapsed="0.000581"/>
+</kw>
+<kw name="Capturar pagina completa" owner="ct02_resources">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:49.888828" level="INFO">Executing JavaScript:
+window.scrollTo(0, 0); document.documentElement.style.zoom = '65%'
+Without any arguments.</msg>
+<arg>window.scrollTo(0, 0); document.documentElement.style.zoom = '65%'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.888633" elapsed="0.006063"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:50.059596" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct02_05_validacao_email.png"&gt;&lt;img src="ct02_05_validacao_email.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${arquivo}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T23:20:49.894932" elapsed="0.164870"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:50.060484" level="INFO">Executing JavaScript:
+document.documentElement.style.zoom = '100%'
+Without any arguments.</msg>
+<arg>document.documentElement.style.zoom = '100%'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T23:20:50.060188" elapsed="0.010609"/>
+</kw>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT02${/}ct02_05_validacao_email.png</arg>
+<status status="PASS" start="2026-10-23T23:20:49.887994" elapsed="0.183036"/>
+</kw>
+<kw name="Capturar pagina completa" owner="ct02_resources">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:50.072472" level="INFO">Executing JavaScript:
+window.scrollTo(0, 0); document.documentElement.style.zoom = '65%'
+Without any arguments.</msg>
+<arg>window.scrollTo(0, 0); document.documentElement.style.zoom = '65%'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T23:20:50.072182" elapsed="0.007658"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:50.220452" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct02_06_fim.png"&gt;&lt;img src="ct02_06_fim.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${arquivo}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T23:20:50.080084" elapsed="0.140548"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-10-23T23:20:50.221330" level="INFO">Executing JavaScript:
+document.documentElement.style.zoom = '100%'
+Without any arguments.</msg>
+<arg>document.documentElement.style.zoom = '100%'</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-10-23T23:20:50.221014" elapsed="0.008187"/>
+</kw>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT02${/}ct02_06_fim.png</arg>
+<status status="PASS" start="2026-10-23T23:20:50.071404" elapsed="0.157921"/>
+</kw>
+<status status="PASS" start="2026-10-23T23:20:49.831252" elapsed="0.398161"/>
+</kw>
+<kw name="Fechar o navegador" owner="ct02_resources" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-23T23:20:50.230314" elapsed="2.404025"/>
+</kw>
+<status status="PASS" start="2026-10-23T23:20:50.229906" elapsed="2.404876"/>
+</kw>
+<doc>Verifica que o sistema impede o cadastro com "usuario.invalido.com" e exibe "ERRO! Digite um e-mail válido.".</doc>
+<tag>cadastro</tag>
+<tag>caixa_preta</tag>
+<tag>ct02</tag>
+<tag>email_invalido</tag>
+<tag>validacao</tag>
+<status status="PASS" start="2026-10-23T23:20:46.338903" elapsed="6.296538"/>
+</test>
+<doc>CT02 - Impedir cadastro com e-mail inválido.
+Passo a passo:
+1- Acessar a tela inicial do MyKeeper;
+2- Clicar em "Cadastrar-se";
+3- Preencher nome "Usuário Válido", CEP 81280080 e senha "Teste12345678*";
+4- Preencher o e-mail inválido "usuario.invalido.com", sem @;
+5- Clicar em "Cadastrar".</doc>
+<status status="PASS" start="2026-10-23T23:20:45.750715" elapsed="6.887650"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">cadastro</stat>
+<stat pass="1" fail="0" skip="0">caixa_preta</stat>
+<stat pass="1" fail="0" skip="0">ct02</stat>
+<stat pass="1" fail="0" skip="0">email_invalido</stat>
+<stat pass="1" fail="0" skip="0">validacao</stat>
+</tag>
+<suite>
+<stat name="Ct02 Teste" id="s1" pass="1" fail="0" skip="0">Ct02 Teste</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

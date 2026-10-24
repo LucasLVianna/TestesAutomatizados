@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.14.4 on win32)" generated="2026-10-23T20:01:13.054574" rpa="false" schemaversion="5">
+<suite id="s1" name="Ct34 Testes" source="D:\verival - ra3\TestesAutomatizados\CT34\ct34_testes.robot">
+<kw name="Preparar massa de dados do caso" owner="ct34_resources" type="SETUP">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-23T20:01:13.717435" level="INFO">${id_execucao} = 1792796473717355400</msg>
+<var>${id_execucao}</var>
+<arg>str(time.time_ns())</arg>
+<arg>modules=time</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-23T20:01:13.716869" elapsed="0.000617"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-10-23T20:01:13.718356" level="INFO">${EMAIL_USUARIO} = teste_1792796473717355400_ct34@teste.com</msg>
+<arg>${EMAIL_USUARIO}</arg>
+<arg>teste_${id_execucao}_ct34@teste.com</arg>
+<doc>Makes the variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-10-23T20:01:13.717708" elapsed="0.000716"/>
+</kw>
+<kw name="Abrir o navegador" owner="ct34_resources">
+<kw name="Montar opcoes do navegador" owner="ct34_resources">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-23T20:01:13.719518" level="INFO">${opcoes} = add_argument("--window-size=1920,1080");binary_location="C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"</msg>
+<var>${opcoes}</var>
+<arg>add_argument("--window-size=1920,1080");binary_location="${CAMINHO_BRAVE}"</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-23T20:01:13.719071" elapsed="0.000500"/>
+</kw>
+<if>
+<branch type="IF" condition="$HEADLESS.lower() == 'true'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${opcoes}</var>
+<arg>${opcoes};add_argument("--headless=new")</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="NOT RUN" start="2026-10-23T20:01:13.720001" elapsed="0.000036"/>
+</kw>
+<status status="NOT RUN" start="2026-10-23T20:01:13.719717" elapsed="0.000374"/>
+</branch>
+<status status="PASS" start="2026-10-23T20:01:13.719669" elapsed="0.000474"/>
+</if>
+<return>
+<value>${opcoes}</value>
+<status status="PASS" start="2026-10-23T20:01:13.720198" elapsed="0.000055"/>
+</return>
+<msg time="2026-10-23T20:01:13.720404" level="INFO">${opcoes} = add_argument("--window-size=1920,1080");binary_location="C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"</msg>
+<var>${opcoes}</var>
+<status status="PASS" start="2026-10-23T20:01:13.718894" elapsed="0.001544"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:01:13.720992" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/mykeeper'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${opcoes}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-23T20:01:13.720739" elapsed="1.817882"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-23T20:01:15.538836" elapsed="0.131170"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:01:13.718609" elapsed="1.951552"/>
+</kw>
+<kw name="Cadastrar usuario de teste" owner="ct34_resources">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:01:15.670800" level="INFO">Opening url 'http://localhost/mykeeper/usuario_cadastro'</msg>
+<arg>url=${URL}/usuario_cadastro</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-10-23T20:01:15.670609" elapsed="0.192713"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_NOME}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T20:01:15.863535" elapsed="0.021288"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:01:15.885500" level="INFO">Typing text 'Usuario Teste CT34' into text field 'id:nome'.</msg>
+<arg>${CAMPO_NOME}</arg>
+<arg>${NOME_USUARIO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:01:15.885139" elapsed="0.095617"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:01:15.981380" level="INFO">Typing text 'teste_1792796473717355400_ct34@teste.com' into text field 'id:email'.</msg>
+<arg>${CAMPO_EMAIL}</arg>
+<arg>${EMAIL_USUARIO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:01:15.981044" elapsed="0.129751"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:01:16.111656" level="INFO">Typing text '80215-901' into text field 'id:cep'.</msg>
+<arg>${CAMPO_CEP}</arg>
+<arg>${CEP_USUARIO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:01:16.111315" elapsed="0.080444"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:01:16.192462" level="INFO">Typing password into text field 'id:senha'.</msg>
+<msg time="2026-10-23T20:01:16.217104" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>${SENHA_PADRAO}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:01:16.192009" elapsed="0.058319"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:01:16.250765" level="INFO">Clicking button 'css:#formCadastro button[type=submit]'.</msg>
+<arg>${BOTAO_CRIAR_CONTA}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:01:16.250511" elapsed="0.066693"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${MENSAGEM_FORMULARIO}</arg>
+<arg>${MSG_CADASTRO_SUCESSO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2026-10-23T20:01:16.317393" elapsed="0.231660"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>usuario_login</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-10-23T20:01:16.549276" elapsed="1.031460"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:01:15.670390" elapsed="1.910465"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-23T20:01:17.580992" elapsed="2.227736"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:01:13.716090" elapsed="6.092783"/>
+</kw>
+<test id="s1-t1" name="CT34 - Validar o acesso negado no login com senha incorreta" line="8">
+<kw name="Abrir o navegador" owner="ct34_resources" type="SETUP">
+<kw name="Montar opcoes do navegador" owner="ct34_resources">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-23T20:01:19.810925" level="INFO">${opcoes} = add_argument("--window-size=1920,1080");binary_location="C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"</msg>
+<var>${opcoes}</var>
+<arg>add_argument("--window-size=1920,1080");binary_location="${CAMINHO_BRAVE}"</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-23T20:01:19.810529" elapsed="0.000433"/>
+</kw>
+<if>
+<branch type="IF" condition="$HEADLESS.lower() == 'true'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${opcoes}</var>
+<arg>${opcoes};add_argument("--headless=new")</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="NOT RUN" start="2026-10-23T20:01:19.811349" elapsed="0.000034"/>
+</kw>
+<status status="NOT RUN" start="2026-10-23T20:01:19.811073" elapsed="0.000360"/>
+</branch>
+<status status="PASS" start="2026-10-23T20:01:19.811044" elapsed="0.000461"/>
+</if>
+<return>
+<value>${opcoes}</value>
+<status status="PASS" start="2026-10-23T20:01:19.811552" elapsed="0.000051"/>
+</return>
+<msg time="2026-10-23T20:01:19.811738" level="INFO">${opcoes} = add_argument("--window-size=1920,1080");binary_location="C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"</msg>
+<var>${opcoes}</var>
+<status status="PASS" start="2026-10-23T20:01:19.810281" elapsed="0.001490"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:01:19.812326" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/mykeeper'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${opcoes}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-23T20:01:19.812074" elapsed="1.518182"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-23T20:01:21.330483" elapsed="0.039836"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:01:19.809938" elapsed="1.560582"/>
+</kw>
+<kw name="Tentar efetuar login" owner="ct34_resources">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:01:21.371749" level="INFO">Opening url 'http://localhost/mykeeper/usuario_login'</msg>
+<arg>url=${URL}/usuario_login</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-10-23T20:01:21.371419" elapsed="0.166750"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_EMAIL}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T20:01:21.538363" elapsed="0.023221"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:01:21.562069" level="INFO">Typing text 'teste_1792796473717355400_ct34@teste.com' into text field 'id:email'.</msg>
+<arg>${CAMPO_EMAIL}</arg>
+<arg>${EMAIL_USUARIO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:01:21.561788" elapsed="0.138526"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:01:21.700810" level="INFO">Typing password into text field 'id:senha'.</msg>
+<msg time="2026-10-23T20:01:21.722653" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:01:21.700522" elapsed="0.072220"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:01:21.773343" level="INFO">Clicking button 'css:#formLogin button[type=submit]'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T20:01:21.772933" elapsed="0.061471"/>
+</kw>
+<arg>${SENHA_INCORRETA}</arg>
+<status status="PASS" start="2026-10-23T20:01:21.370972" elapsed="0.463560"/>
+</kw>
+<kw name="Verificar que o login foi recusado" owner="ct34_resources">
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${MENSAGEM_FORMULARIO}</arg>
+<arg>${MSG_LOGIN_INVALIDO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2026-10-23T20:01:21.835238" elapsed="0.236345"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:01:22.077431" level="INFO">Current location contains 'usuario_login'.</msg>
+<arg>usuario_login</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-10-23T20:01:22.071765" elapsed="0.005804"/>
+</kw>
+<kw name="Page Should Not Contain Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:01:22.085285" level="INFO">Current page does not contain element 'id:logoffButtonLink'.</msg>
+<arg>${MENU_SAIR}</arg>
+<doc>Verifies that element ``locator`` is not found on the current page.</doc>
+<status status="PASS" start="2026-10-23T20:01:22.077739" elapsed="0.007642"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:01:21.834909" elapsed="0.250575"/>
+</kw>
+<kw name="Fechar o navegador" owner="ct34_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T20:01:22.223239" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T20:01:22.086224" elapsed="0.137154"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-23T20:01:22.223555" elapsed="2.189872"/>
+</kw>
+<status status="PASS" start="2026-10-23T20:01:22.085883" elapsed="2.327673"/>
+</kw>
+<doc>Ao tentar entrar com um e-mail cadastrado e uma senha incorreta, o sistema
+deve impedir o login, permanecer na tela de login e exibir a mensagem
+"Email ou senha incorretos", sem exibir o menu de usuario logado.</doc>
+<tag>alta</tag>
+<tag>autenticacao</tag>
+<tag>funcionalidade</tag>
+<tag>login</tag>
+<status status="PASS" start="2026-10-23T20:01:19.808986" elapsed="4.604819"/>
+</test>
+<status status="PASS" start="2026-10-23T20:01:13.056649" elapsed="11.358367"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">alta</stat>
+<stat pass="1" fail="0" skip="0">autenticacao</stat>
+<stat pass="1" fail="0" skip="0">funcionalidade</stat>
+<stat pass="1" fail="0" skip="0">login</stat>
+</tag>
+<suite>
+<stat name="Ct34 Testes" id="s1" pass="1" fail="0" skip="0">Ct34 Testes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

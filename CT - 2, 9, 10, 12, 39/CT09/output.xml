@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.13.3 on win32)" generated="2026-10-23T19:08:21.606692" rpa="false" schemaversion="5">
+<suite id="s1" name="Ct09 Teste" source="C:\Users\User\OneDrive - Grupo Marista\2026_2\Verificação e Validação\PjBl 3\CT9-16\CT09\ct09_teste.robot">
+<test id="s1-t1" name="CT09 - Inserir item no estoque com quantidade negativa" line="15">
+<kw name="Abrir o navegador e fazer login" owner="ct09_resources" type="SETUP">
+<kw name="Abrir o navegador" owner="ct09_resources">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:22.323294" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/mykeeper/usuario_login'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-23T19:08:22.323023" elapsed="1.744713"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-23T19:08:24.068174" elapsed="0.053880"/>
+</kw>
+<status status="PASS" start="2026-10-23T19:08:22.322048" elapsed="1.801036"/>
+</kw>
+<kw name="Realizar login" owner="ct09_resources">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T19:08:24.124826" elapsed="0.049915"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:24.175658" level="INFO">Typing text 'user@user.com' into text field 'id:email'.</msg>
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:08:24.175116" elapsed="0.188703"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:24.364932" level="INFO">Typing password into text field 'id:senha'.</msg>
+<msg time="2026-10-23T19:08:24.401213" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_LOGIN_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:08:24.364300" elapsed="0.106796"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:24.649923" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T19:08:24.471367" elapsed="0.178773"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:24.651200" level="INFO">Clicking element 'css:button[type="submit"]'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:08:24.650571" elapsed="0.084291"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ELEMENTO_POS_LOGIN}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T19:08:24.735150" elapsed="1.285367"/>
+</kw>
+<arg>${USUARIO_VALIDO}</arg>
+<arg>${SENHA_VALIDA}</arg>
+<status status="PASS" start="2026-10-23T19:08:24.123855" elapsed="1.897107"/>
+</kw>
+<status status="PASS" start="2026-10-23T19:08:22.321637" elapsed="3.699657"/>
+</kw>
+<kw name="Acessar pagina de itens do estoque" owner="ct09_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:26.024853" level="INFO">Clicking element 'id:estoquesButtonLink'.</msg>
+<arg>${MENU_ESTOQUES}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:08:26.023931" elapsed="0.136393"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CARD_ESTOQUE}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T19:08:26.160916" elapsed="0.056326"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:26.218095" level="INFO">Clicking element 'xpath://div[contains(@class, 'card-nome') and normalize-space()='Despensa']'.</msg>
+<arg>${CARD_ESTOQUE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:08:26.217619" elapsed="0.131733"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${TITULO_ITENS_ESTOQUE}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T19:08:26.349717" elapsed="0.049107"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:26.566798" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T19:08:26.399127" elapsed="0.167881"/>
+</kw>
+<status status="PASS" start="2026-10-23T19:08:26.022611" elapsed="0.544619"/>
+</kw>
+<kw name="Clicar em novo item" owner="ct09_resources">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_NOVO_ITEM}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T19:08:26.572923" elapsed="0.018304"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:26.591742" level="INFO">Clicking element 'id:adicionarItem'.</msg>
+<arg>${BOTAO_NOVO_ITEM}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:08:26.591462" elapsed="0.151081"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${TITULO_ADICIONAR_ITEM}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T19:08:26.742886" elapsed="0.183489"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_FILTRO_PRODUTO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T19:08:26.926693" elapsed="0.027935"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:27.110441" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T19:08:26.954918" elapsed="0.155709"/>
+</kw>
+<status status="PASS" start="2026-10-23T19:08:26.572291" elapsed="0.538602"/>
+</kw>
+<kw name="Escolher um produto pre-cadastrado" owner="ct09_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:27.114807" level="INFO">Typing text 'Arroz' into text field 'id:buscar-produto'.</msg>
+<arg>${CAMPO_FILTRO_PRODUTO}</arg>
+<arg>${nome_produto}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:08:27.114196" elapsed="0.144305"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-10-23T19:08:28.259472" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-10-23T19:08:27.258790" elapsed="1.000875"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CARD_PRODUTO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T19:08:28.260006" elapsed="0.019362"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:28.415145" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T19:08:28.279994" elapsed="0.135362"/>
+</kw>
+<arg>${PRODUTO_ALVO}</arg>
+<status status="PASS" start="2026-10-23T19:08:27.113307" elapsed="1.302243"/>
+</kw>
+<kw name="Informar quantidade do item" owner="ct09_resources">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_QUANTIDADE_ITEM}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T19:08:28.420448" elapsed="0.014876"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${CAMPO_QUANTIDADE_ITEM}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:08:28.435530" elapsed="0.029959"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:28.466513" level="INFO">Typing text '-1' into text field 'xpath://div[@id='item']/div[contains(@class, 'card') and .//div[contains(@class, 'card-nome') and normalize-space()='Arroz']]//input[starts-with(@id, 'quantidade-')]'.</msg>
+<arg>${CAMPO_QUANTIDADE_ITEM}</arg>
+<arg>${quantidade}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:08:28.465908" elapsed="0.073608"/>
+</kw>
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:28.566447" level="INFO">${valor_digitado} = -1</msg>
+<var>${valor_digitado}</var>
+<arg>${CAMPO_QUANTIDADE_ITEM}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:08:28.540342" elapsed="0.026442"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${valor_digitado}</arg>
+<arg>${quantidade}</arg>
+<arg>msg=O sistema não aceitou a quantidade digitada (${quantidade}). Valor atual: ${valor_digitado}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-10-23T19:08:28.567185" elapsed="0.001078"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:28.748215" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T19:08:28.568707" elapsed="0.179698"/>
+</kw>
+<arg>${QUANTIDADE_INVALIDA}</arg>
+<status status="PASS" start="2026-10-23T19:08:28.419734" elapsed="0.328875"/>
+</kw>
+<kw name="Clicar em adicionar item" owner="ct09_resources">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_ADICIONAR_ITEM}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T19:08:28.750968" elapsed="0.016995"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:28.768461" level="INFO">Clicking element 'xpath://div[@id='item']/div[contains(@class, 'card') and .//div[contains(@class, 'card-nome') and normalize-space()='Arroz']]//div[contains(@class, 'card-botoes')]//button[contains(@onclick, 'adicionar')]'.</msg>
+<arg>${BOTAO_ADICIONAR_ITEM}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T19:08:28.768191" elapsed="0.047665"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-10-23T19:08:29.817030" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-10-23T19:08:28.816139" elapsed="1.001114"/>
+</kw>
+<status status="PASS" start="2026-10-23T19:08:28.750302" elapsed="1.067199"/>
+</kw>
+<kw name="O sistema impede o salvamento exibindo alerta &quot;A quantidade deve ser maior do que 0&quot;" owner="ct09_resources">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:29.825928" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:03</msg>
+<msg time="2026-10-23T19:08:32.857204" level="FAIL">Alert not found in 3 seconds.</msg>
+<arg>action=ACCEPT</arg>
+<arg>timeout=3s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2026-10-23T19:08:29.825449" elapsed="3.035407">Alert not found in 3 seconds.</status>
+</kw>
+<msg time="2026-10-23T19:08:32.861092" level="INFO">${status} = FAIL</msg>
+<msg time="2026-10-23T19:08:32.861170" level="INFO">${mensagem} = Alert not found in 3 seconds.</msg>
+<var>${status}</var>
+<var>${mensagem}</var>
+<arg>Handle Alert</arg>
+<arg>action=ACCEPT</arg>
+<arg>timeout=3s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible errorw.</doc>
+<status status="PASS" start="2026-10-23T19:08:29.824210" elapsed="3.037007"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'PASS'">
+<kw name="Log" owner="BuiltIn">
+<arg>Texto do alerta do navegador: ${mensagem}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-10-23T19:08:32.861828" elapsed="0.000056"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-10-23T19:08:32.862118" elapsed="0.000040"/>
+</kw>
+<kw name="Convert To Lower Case" owner="String">
+<var>${mensagem_min}</var>
+<arg>${mensagem}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="NOT RUN" start="2026-10-23T19:08:32.862320" elapsed="0.000054"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${mensagem_min}</arg>
+<arg>${TERMO_AVISO}</arg>
+<arg>O alerta exibido não fala que a quantidade deve ser maior do que 0: ${mensagem}</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="NOT RUN" start="2026-10-23T19:08:32.862573" elapsed="0.000045"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-10-23T19:08:32.862708" elapsed="0.000046"/>
+</return>
+<status status="NOT RUN" start="2026-10-23T19:08:32.861404" elapsed="0.001412"/>
+</branch>
+<status status="PASS" start="2026-10-23T19:08:32.861363" elapsed="0.001520"/>
+</if>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:42.982936" level="FAIL">O sistema não avisou que a quantidade deve ser maior do que 0.</msg>
+<arg>${AVISO_QUANTIDADE_PAGINA}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<arg>error=O sistema não avisou que a quantidade deve ser maior do que 0.</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2026-10-23T19:08:32.863036" elapsed="10.125304">O sistema não avisou que a quantidade deve ser maior do que 0.</status>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-10-23T19:08:42.989079" elapsed="0.000129"/>
+</kw>
+<status status="FAIL" start="2026-10-23T19:08:29.823496" elapsed="13.166117">O sistema não avisou que a quantidade deve ser maior do que 0.</status>
+</kw>
+<kw name="Fechar o navegador" owner="ct09_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T19:08:43.082204" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T19:08:42.992516" elapsed="0.089983"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-23T19:08:43.082824" elapsed="2.448923"/>
+</kw>
+<status status="PASS" start="2026-10-23T19:08:42.991184" elapsed="2.540988"/>
+</kw>
+<doc>Verifica se o sistema impede a inserção de item com quantidade negativa (-1) no estoque,
+validando a aceitação do valor digitado e a exibição do alerta "A quantidade deve ser maior do que 0".</doc>
+<tag>caixa_preta</tag>
+<tag>ct09</tag>
+<tag>estoque</tag>
+<tag>quantidade_invalida</tag>
+<tag>validacao</tag>
+<status status="FAIL" start="2026-10-23T19:08:22.320345" elapsed="23.212535">O sistema não avisou que a quantidade deve ser maior do que 0.</status>
+</test>
+<doc>CT09 - Impedir inserção de item com quantidade negativa no estoque.
+Passo a passo:
+1- Com um perfil logado, um produto e um estoque pré-cadastrados, abrir página de "Itens do Estoque";
+2- Clicar em "Novo Item";
+3- Escolher um produto pré-cadastrado;
+4- Informar Quantidade = -1;
+5- Clicar em "+ Adicionar".</doc>
+<status status="FAIL" start="2026-10-23T19:08:21.610133" elapsed="23.926204"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">caixa_preta</stat>
+<stat pass="0" fail="1" skip="0">ct09</stat>
+<stat pass="0" fail="1" skip="0">estoque</stat>
+<stat pass="0" fail="1" skip="0">quantidade_invalida</stat>
+<stat pass="0" fail="1" skip="0">validacao</stat>
+</tag>
+<suite>
+<stat name="Ct09 Teste" id="s1" pass="0" fail="1" skip="0">Ct09 Teste</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

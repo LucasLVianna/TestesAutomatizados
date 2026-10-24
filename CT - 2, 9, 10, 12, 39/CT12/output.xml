@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.13.3 on win32)" generated="2026-10-23T22:28:57.551807" rpa="false" schemaversion="5">
+<suite id="s1" name="Ct12 Teste" source="C:\Users\User\OneDrive - Grupo Marista\2026_2\Verificação e Validação\PjBl 3\CT9-16\CT12\ct12_teste.robot">
+<test id="s1-t1" name="CT12 - Impedir cadastro de categoria duplicada" line="15">
+<kw name="Abrir o navegador e fazer login" owner="ct12_resources" type="SETUP">
+<kw name="Abrir o navegador" owner="ct12_resources">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:28:58.175618" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/mykeeper/usuario_login'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-23T22:28:58.175247" elapsed="1.792361"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-23T22:28:59.968075" elapsed="0.048157"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:28:58.174093" elapsed="1.842377"/>
+</kw>
+<kw name="Realizar login" owner="ct12_resources">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T22:29:00.022393" elapsed="0.098704"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:00.122442" level="INFO">Typing text 'user@user.com' into text field 'id:email'.</msg>
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:29:00.121517" elapsed="0.171801"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:00.294370" level="INFO">Typing password into text field 'id:senha'.</msg>
+<msg time="2026-10-23T22:29:00.332282" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_LOGIN_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:29:00.293653" elapsed="0.109563"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:00.594873" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct12_01_login.png"&gt;&lt;img src="ct12_01_login.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT12${/}ct12_01_login.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T22:29:00.403699" elapsed="0.191377"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:00.596178" level="INFO">Clicking element 'css:button[type="submit"]'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:29:00.595495" elapsed="0.065558"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ELEMENTO_POS_LOGIN}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T22:29:00.661387" elapsed="1.338451"/>
+</kw>
+<arg>${USUARIO_VALIDO}</arg>
+<arg>${SENHA_VALIDA}</arg>
+<status status="PASS" start="2026-10-23T22:29:00.016839" elapsed="1.984045"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:28:58.173537" elapsed="3.827917"/>
+</kw>
+<kw name="Acessar pagina de categorias" owner="ct12_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:02.004781" level="INFO">Clicking element 'id:categoriasButtonLink'.</msg>
+<arg>${MENU_CATEGORIAS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:29:02.004181" elapsed="0.275019"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${TITULO_CATEGORIAS}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T22:29:02.279633" elapsed="0.017735"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_ADICIONAR_CATEGORIA}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T22:29:02.297711" elapsed="0.030276"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:02.490824" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct12_02_categorias.png"&gt;&lt;img src="ct12_02_categorias.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT12${/}ct12_02_categorias.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T22:29:02.328439" elapsed="0.162582"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:29:02.003217" elapsed="0.487989"/>
+</kw>
+<kw name="Selecionar uma categoria ja cadastrada" owner="ct12_resources">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CATEGORIA_EXISTENTE_LISTA}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<arg>error=Não há uma categoria cadastrada para executar o teste de duplicidade.</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T22:29:02.494581" elapsed="0.021640"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:02.534500" level="INFO">${nome_categoria} = Laticínios</msg>
+<var>${nome_categoria}</var>
+<arg>${CATEGORIA_EXISTENTE_LISTA}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:29:02.516457" elapsed="0.018103"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-23T22:29:02.535250" level="INFO">Length is 10.</msg>
+<arg>${nome_categoria}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-23T22:29:02.534741" elapsed="0.000575"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-10-23T22:29:02.536176" level="INFO">${CATEGORIA_DUPLICADA} = Laticínios</msg>
+<arg>${CATEGORIA_DUPLICADA}</arg>
+<arg>${nome_categoria}</arg>
+<doc>Makes the variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-10-23T22:29:02.535493" elapsed="0.000746"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-10-23T22:29:02.536734" level="INFO">Categoria existente selecionada para o teste: Laticínios</msg>
+<arg>Categoria existente selecionada para o teste: ${CATEGORIA_DUPLICADA}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-10-23T22:29:02.536442" elapsed="0.000354"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:29:02.494172" elapsed="0.042711"/>
+</kw>
+<kw name="Clicar em adicionar categoria" owner="ct12_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:02.538021" level="INFO">Clicking element 'id:categoria_nova'.</msg>
+<arg>${BOTAO_ADICIONAR_CATEGORIA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:29:02.537718" elapsed="0.122933"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${TITULO_NOVA_CATEGORIA}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T22:29:02.660879" elapsed="0.011423"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_NOME_CATEGORIA}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T22:29:02.672653" elapsed="0.020249"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:02.850419" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct12_03_nova_categoria.png"&gt;&lt;img src="ct12_03_nova_categoria.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT12${/}ct12_03_nova_categoria.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T22:29:02.693338" elapsed="0.157257"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:29:02.537299" elapsed="0.313520"/>
+</kw>
+<kw name="Preencher os dados da categoria existente" owner="ct12_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:02.859172" level="INFO">Typing text 'Laticínios' into text field 'id:nome_categoria'.</msg>
+<arg>${CAMPO_NOME_CATEGORIA}</arg>
+<arg>${CATEGORIA_DUPLICADA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:29:02.857049" elapsed="0.078893"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:02.937063" level="INFO">Typing text '...' into text field 'id:descricao_categoria'.</msg>
+<arg>${CAMPO_DESCRICAO_CATEGORIA}</arg>
+<arg>${DESCRICAO_CATEGORIA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:29:02.936397" elapsed="0.061056"/>
+</kw>
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:03.015093" level="INFO">${nome_digitado} = Laticínios</msg>
+<var>${nome_digitado}</var>
+<arg>${CAMPO_NOME_CATEGORIA}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:29:02.997797" elapsed="0.017380"/>
+</kw>
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:03.027274" level="INFO">${descricao_digitada} = ...</msg>
+<var>${descricao_digitada}</var>
+<arg>${CAMPO_DESCRICAO_CATEGORIA}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:29:03.015434" elapsed="0.011897"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${nome_digitado}</arg>
+<arg>${CATEGORIA_DUPLICADA}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-10-23T22:29:03.027530" elapsed="0.000433"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${descricao_digitada}</arg>
+<arg>${DESCRICAO_CATEGORIA}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-10-23T22:29:03.028122" elapsed="0.000355"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:03.195282" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct12_04_dados_duplicados.png"&gt;&lt;img src="ct12_04_dados_duplicados.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT12${/}ct12_04_dados_duplicados.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T22:29:03.028672" elapsed="0.166803"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:29:02.855461" elapsed="0.340240"/>
+</kw>
+<kw name="Clicar em adicionar" owner="ct12_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:03.203767" level="INFO">Clicking element 'id:addcategoria'.</msg>
+<arg>${BOTAO_ADICIONAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:29:03.203267" elapsed="0.061567"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:29:03.202546" elapsed="0.062442"/>
+</kw>
+<kw name="O sistema impede o cadastro da categoria duplicada" owner="ct12_resources">
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${CAMPO_ERRO}</arg>
+<arg>${MENSAGEM_DUPLICIDADE}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2026-10-23T22:29:03.266157" elapsed="0.024230"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:03.307599" level="INFO">${mensagem} = ERRO! Categoria já cadastrada.</msg>
+<var>${mensagem}</var>
+<arg>${CAMPO_ERRO}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T22:29:03.290692" elapsed="0.016990"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${mensagem}</arg>
+<arg>${MENSAGEM_DUPLICIDADE}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-10-23T22:29:03.307991" elapsed="0.000624"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:03.479018" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct12_06_alerta_duplicidade.png"&gt;&lt;img src="ct12_06_alerta_duplicidade.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT12${/}ct12_06_alerta_duplicidade.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T22:29:03.308978" elapsed="0.170230"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:29:03.265550" elapsed="0.213871"/>
+</kw>
+<kw name="Fechar o navegador" owner="ct12_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T22:29:03.650572" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ct12_05_fim.png"&gt;&lt;img src="ct12_05_fim.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>C:\\Users\\User\\OneDrive - Grupo Marista\\2026_2\\Verificação e Validação\\PjBl 3\\CT9-16\\CT12${/}ct12_05_fim.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T22:29:03.483191" elapsed="0.167576"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-23T22:29:03.651048" elapsed="2.574463"/>
+</kw>
+<status status="PASS" start="2026-10-23T22:29:03.482170" elapsed="2.743782"/>
+</kw>
+<doc>Verifica se o sistema impede cadastrar novamente uma categoria existente e exibe "ERRO! Categoria já cadastrada.".</doc>
+<tag>caixa_preta</tag>
+<tag>categorias</tag>
+<tag>ct12</tag>
+<tag>duplicidade</tag>
+<tag>validacao</tag>
+<status status="PASS" start="2026-10-23T22:28:58.171047" elapsed="8.055611"/>
+</test>
+<doc>CT12 - Impedir o cadastro de uma categoria já cadastrada.
+Passo a passo:
+1- Acessar "Categorias";
+2- Clicar em "Adicionar Categoria";
+3- No campo nome, digitar uma categoria já existente;
+4- Preencher a descrição com "...";
+5- Clicar em "Adicionar".</doc>
+<status status="PASS" start="2026-10-23T22:28:57.556402" elapsed="8.673415"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">caixa_preta</stat>
+<stat pass="1" fail="0" skip="0">categorias</stat>
+<stat pass="1" fail="0" skip="0">ct12</stat>
+<stat pass="1" fail="0" skip="0">duplicidade</stat>
+<stat pass="1" fail="0" skip="0">validacao</stat>
+</tag>
+<suite>
+<stat name="Ct12 Teste" id="s1" pass="1" fail="0" skip="0">Ct12 Teste</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

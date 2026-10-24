@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.14.7 on win32)" generated="2026-10-23T00:36:40.103163" rpa="false" schemaversion="5">
+<suite id="s1" name="Ct32 Teste" source="C:\Users\andre\PUC\4 - Periodo\VeriVal\TestesAutomatizados\CT25-32\CT32\ct32_teste.robot">
+<test id="s1-t1" name="CT32 - Cadastrar produto com acentuação e cedilha no nome" line="9">
+<kw name="Abrir o navegador e fazer login" owner="ct32_resources" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:36:41.367034" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/mykeeper/usuario_login'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-23T00:36:41.366226" elapsed="2.487170"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-23T00:36:43.854083" elapsed="0.073883"/>
+</kw>
+<kw name="Realizar login" owner="ct32_resources">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T00:36:43.937435" elapsed="0.064702"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:36:44.003487" level="INFO">Typing text 'teste@teste.com' into text field 'id:email'.</msg>
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:36:44.002626" elapsed="0.314169"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:36:44.318055" level="INFO">Typing password into text field 'id:senha'.</msg>
+<msg time="2026-10-23T00:36:44.412151" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_LOGIN_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:36:44.317317" elapsed="0.200194"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:36:44.656336" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T00:36:44.518933" elapsed="0.137651"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:36:44.657865" level="INFO">Clicking element 'css:button[type="submit"]'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:36:44.657119" elapsed="0.133979"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ELEMENTO_POS_LOGIN}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T00:36:44.791616" elapsed="1.402871"/>
+</kw>
+<arg>${USUARIO_VALIDO}</arg>
+<arg>${SENHA_VALIDA}</arg>
+<status status="PASS" start="2026-10-23T00:36:43.930570" elapsed="2.265322"/>
+</kw>
+<status status="PASS" start="2026-10-23T00:36:41.364365" elapsed="4.831841"/>
+</kw>
+<kw name="Abrir formulario de novo produto" owner="ct32_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:36:46.202463" level="INFO">Clicking element 'id:produtosButtonLink'.</msg>
+<arg>${MENU_PRODUTOS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:36:46.201749" elapsed="0.385347"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_ADICIONAR_PRODUTO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T00:36:46.588473" elapsed="0.166157"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:36:46.755755" level="INFO">Clicking element 'id:produto_novo'.</msg>
+<arg>${BOTAO_ADICIONAR_PRODUTO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:36:46.755151" elapsed="0.564494"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_NOME_PRODUTO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T00:36:47.320523" elapsed="0.179123"/>
+</kw>
+<status status="PASS" start="2026-10-23T00:36:46.200861" elapsed="1.299114"/>
+</kw>
+<kw name="Cadastrar produto" owner="ct32_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:36:47.503000" level="INFO">Typing text 'Pão de Açúcar Orgânico' into text field 'id:nome_produto'.</msg>
+<arg>${CAMPO_NOME_PRODUTO}</arg>
+<arg>${nome}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:36:47.502104" elapsed="0.433832"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:36:47.937064" level="INFO">Selecting options from selection list 'id:categoria_produto' by label Grãos e Cereais.</msg>
+<arg>${SELECT_CATEGORIA}</arg>
+<arg>${categoria}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-10-23T00:36:47.936330" elapsed="0.339524"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:36:48.278655" level="INFO">Selecting options from selection list 'id:und_medida_produto' by label Quilo (Kg).</msg>
+<arg>${SELECT_UNIDADE}</arg>
+<arg>${unidade}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-10-23T00:36:48.277906" elapsed="0.322369"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:36:48.756917" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T00:36:48.601112" elapsed="0.156073"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:36:48.758373" level="INFO">Clicking element 'id:addproduto'.</msg>
+<arg>${BOTAO_SALVAR_PRODUTO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:36:48.757684" elapsed="0.111707"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-10-23T00:36:50.871364" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-10-23T00:36:48.869854" elapsed="2.001774"/>
+</kw>
+<arg>${NOME_PRODUTO_ACENTUADO}</arg>
+<arg>${CATEGORIA_PRODUTO}</arg>
+<arg>${UNIDADE_PRODUTO}</arg>
+<status status="PASS" start="2026-10-23T00:36:47.500812" elapsed="3.371063"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:36:50.873327" level="INFO">Clicking element 'id:produtosButtonLink'.</msg>
+<arg>${MENU_PRODUTOS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:36:50.872656" elapsed="0.164975"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${NOME_PRODUTO_ACENTUADO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T00:36:51.038790" elapsed="0.243068"/>
+</kw>
+<kw name="Page Should Not Contain" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:36:51.322371" level="INFO">Current page does not contain text 'PÃ£o'.</msg>
+<arg>PÃ£o</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<status status="PASS" start="2026-10-23T00:36:51.282499" elapsed="0.040131"/>
+</kw>
+<kw name="Fechar o navegador" owner="ct32_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:36:51.460788" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T00:36:51.324380" elapsed="0.136647"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-23T00:36:51.461421" elapsed="3.548176"/>
+</kw>
+<status status="PASS" start="2026-10-23T00:36:51.323562" elapsed="3.686638"/>
+</kw>
+<doc>O nome deve ser exibido na listagem exatamente como digitado.</doc>
+<tag>caixa_preta</tag>
+<tag>funcionalidade</tag>
+<tag>produtos</tag>
+<status status="PASS" start="2026-10-23T00:36:41.361795" elapsed="13.649171"/>
+</test>
+<doc>CT32 - Acentuação e cedilha. Pré-condição: categoria "Grãos" e unidade "Quilo (Kg)" cadastradas.</doc>
+<status status="PASS" start="2026-10-23T00:36:40.265271" elapsed="14.750438"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">caixa_preta</stat>
+<stat pass="1" fail="0" skip="0">funcionalidade</stat>
+<stat pass="1" fail="0" skip="0">produtos</stat>
+</tag>
+<suite>
+<stat name="Ct32 Teste" id="s1" pass="1" fail="0" skip="0">Ct32 Teste</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.14.7 on win32)" generated="2026-10-23T00:03:06.296807" rpa="false" schemaversion="5">
+<suite id="s1" name="Ct27 Teste" source="C:\Users\andre\PUC\4 - Periodo\VeriVal\TestesAutomatizados\CT25-32\CT27\ct27_teste.robot">
+<test id="s1-t1" name="CT27 - Abrir ticket de suporte sem descrição" line="9">
+<kw name="Abrir o navegador e fazer login" owner="ct27_resources" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:03:08.021304" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/mykeeper/usuario_login'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-23T00:03:08.020428" elapsed="5.180703"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-23T00:03:13.201737" elapsed="0.063076"/>
+</kw>
+<kw name="Realizar login" owner="ct27_resources">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T00:03:13.267644" elapsed="0.078153"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:03:13.347131" level="INFO">Typing text 'teste@teste.com' into text field 'id:email'.</msg>
+<arg>${CAMPO_LOGIN_USUARIO}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:03:13.346305" elapsed="0.416705"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:03:13.764313" level="INFO">Typing password into text field 'id:senha'.</msg>
+<msg time="2026-10-23T00:03:13.850452" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_LOGIN_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:03:13.763499" elapsed="0.203992"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:03:14.123919" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T00:03:13.968095" elapsed="0.156099"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:03:14.125987" level="INFO">Clicking element 'css:button[type="submit"]'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:03:14.124793" elapsed="0.146313"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ELEMENTO_POS_LOGIN}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T00:03:14.271552" elapsed="1.393768"/>
+</kw>
+<arg>${USUARIO_VALIDO}</arg>
+<arg>${SENHA_VALIDA}</arg>
+<status status="PASS" start="2026-10-23T00:03:13.266419" elapsed="2.399212"/>
+</kw>
+<status status="PASS" start="2026-10-23T00:03:08.014563" elapsed="7.651264"/>
+</kw>
+<kw name="Abrir formulario de novo ticket" owner="ct27_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:03:15.668547" level="INFO">Clicking element 'id:ticketButtonLink'.</msg>
+<arg>${MENU_TICKETS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:03:15.667957" elapsed="0.294827"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_ADICIONAR_TICKET}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T00:03:15.963283" elapsed="0.045805"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:03:16.009824" level="INFO">Clicking element 'id:ticket_novo'.</msg>
+<arg>${BOTAO_ADICIONAR_TICKET}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:03:16.009402" elapsed="0.210108"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_TITULO_TICKET}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-10-23T00:03:16.220241" elapsed="0.047387"/>
+</kw>
+<status status="PASS" start="2026-10-23T00:03:15.667141" elapsed="0.600750"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:03:16.276342" level="INFO">Typing text 'Dúvida de uso' into text field 'id:titulo'.</msg>
+<arg>${CAMPO_TITULO_TICKET}</arg>
+<arg>Dúvida de uso</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:03:16.268586" elapsed="0.282449"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${CAMPO_DESCRICAO_TICKET}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:03:16.551892" elapsed="0.047990"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:03:16.601541" level="INFO">Clicking element 'id:criarTicket'.</msg>
+<arg>${BOTAO_CRIAR_TICKET}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-23T00:03:16.600724" elapsed="0.107702"/>
+</kw>
+<kw name="Campo deve exibir mensagem de obrigatoriedade" owner="ct27_resources">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${mensagem_esperada}</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-23T00:03:16.712143" elapsed="0.024169"/>
+</kw>
+<msg time="2026-10-23T00:03:16.737915" level="INFO">${na_pagina} = True</msg>
+<var>${na_pagina}</var>
+<arg>Wait Until Page Contains</arg>
+<arg>${mensagem_esperada}</arg>
+<arg>timeout=3s</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-10-23T00:03:16.710970" elapsed="0.027106"/>
+</kw>
+<if>
+<branch type="IF" condition="${na_pagina}">
+<return>
+<status status="PASS" start="2026-10-23T00:03:16.742231" elapsed="0.000297"/>
+</return>
+<status status="PASS" start="2026-10-23T00:03:16.741529" elapsed="0.001187"/>
+</branch>
+<status status="PASS" start="2026-10-23T00:03:16.741366" elapsed="0.001495"/>
+</if>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${campo}</var>
+<arg>${locator_campo}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-23T00:03:16.743342" elapsed="0.000106"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<var>${msg_nativa}</var>
+<arg>return arguments[0].validationMessage;</arg>
+<arg>ARGUMENTS</arg>
+<arg>${campo}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2026-10-23T00:03:16.743873" elapsed="0.000084"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Mensagem nativa do navegador: ${msg_nativa}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-10-23T00:03:16.744446" elapsed="0.000087"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<arg>${msg_nativa}</arg>
+<arg>O envio não foi bloqueado: nenhuma mensagem de campo obrigatório foi exibida.</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="NOT RUN" start="2026-10-23T00:03:16.744796" elapsed="0.000071"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_TITULO_TICKET}</arg>
+<arg>O formulário foi enviado mesmo sem a descrição.</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-10-23T00:03:16.745162" elapsed="0.000136"/>
+</kw>
+<arg>${CAMPO_DESCRICAO_TICKET}</arg>
+<arg>${MSG_DESCRICAO_OBRIG}</arg>
+<doc>Aceita a mensagem exibida na página ou a validação nativa
+do HTML (atributo required), que não aparece no DOM.</doc>
+<status status="PASS" start="2026-10-23T00:03:16.710099" elapsed="0.035416"/>
+</kw>
+<kw name="Fechar o navegador" owner="ct27_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-23T00:03:16.890054" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-23T00:03:16.747488" elapsed="0.142878"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-23T00:03:16.890795" elapsed="3.109060"/>
+</kw>
+<status status="PASS" start="2026-10-23T00:03:16.746586" elapsed="3.253607"/>
+</kw>
+<doc>O envio deve ser bloqueado, exigindo o preenchimento da descrição.</doc>
+<tag>caixa_preta</tag>
+<tag>funcionalidade</tag>
+<tag>suporte</tag>
+<status status="PASS" start="2026-10-23T00:03:08.009890" elapsed="11.990683"/>
+</test>
+<doc>CT27 - Ticket de suporte sem descrição.</doc>
+<status status="PASS" start="2026-10-23T00:03:06.302187" elapsed="13.700844"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">caixa_preta</stat>
+<stat pass="1" fail="0" skip="0">funcionalidade</stat>
+<stat pass="1" fail="0" skip="0">suporte</stat>
+</tag>
+<suite>
+<stat name="Ct27 Teste" id="s1" pass="1" fail="0" skip="0">Ct27 Teste</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
